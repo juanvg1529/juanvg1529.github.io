@@ -389,3 +389,16 @@ h2 { margin: 0; font-size: clamp(1.7rem, 3.2vw, 2.4rem); line-height: 1.15; lett
 .edu-badge { display: inline-block; padding: 2px 10px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font: 700 .72rem "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: .06em; }
 .edu-spec .edu-name { margin-top: 8px; }
 .edu-topics { margin: 8px 0 0; padding-left: 18px; color: var(--muted); font-size: .9rem; display: grid; gap: 3px; }
+
+/* ---------- Portrait ---------- */
+.hero-id { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; }
+.hero-id .eyebrow { margin: 0; }
+.avatar { flex: 0 0 auto; width: 144px; height: 144px; border-radius: 50%; overflow: hidden; position: relative;
+  /* The photo has a transparent background: a brand gradient keeps the dark jacket visible in both themes. */
+  background: radial-gradient(circle at 50% 35%, #a7f3d0 0%, #34d399 45%, #047857 100%);
+  box-shadow: 0 0 0 4px var(--surface), 0 0 0 6px color-mix(in srgb, var(--accent) 60%, transparent), var(--shadow); }
+.avatar img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+@media (max-width: 760px) {
+  .hero-id { gap: 14px; flex-wrap: wrap; }
+  .avatar { width: 104px; height: 104px; }
+}

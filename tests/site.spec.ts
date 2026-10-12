@@ -129,3 +129,17 @@ test.describe('sharing and search metadata', () => {
     await expect(page.locator('.credential')).toContainText('Specialist in Software Engineering');
   });
 });
+
+test('the portrait loads, is described for screen readers and stays light', async ({ page, request }) => {
+  await page.goto('/');
+  const photo = page.getByRole('img', { name: 'Juan Diego Vera Godoy, QA Automation Engineer / SDET' });
+  await expect(photo).toBeVisible();
+  await expect(photo).toBeInViewport();
+  expect(await photo.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
+
+  // The original photo is 1.6 MB; the versions the page serves must stay small.
+  for (const file of ['img/juan-diego-vera-320.webp', 'img/juan-diego-vera-640.webp']) {
+    const body = await (await request.get(file)).body();
+    expect(body.length, file).toBeLessThan(60 * 1024);
+  }
+});

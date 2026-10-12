@@ -72,7 +72,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/build-stats.mjs
       - name: Collect site files
-        run: mkdir _site && cp index.html styles.css i18n.js menu.js terminal.js dashboard.js bughunt.js _site/ && cp -r data cv lab og _site/
+        run: mkdir _site && cp index.html styles.css i18n.js menu.js terminal.js dashboard.js bughunt.js _site/ && cp -r data cv lab og img _site/
       - uses: actions/download-artifact@v4
         with:
           name: lab-report

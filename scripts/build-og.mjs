@@ -1,6 +1,10 @@
 // Renders the social preview images (1200x630) shown when the site's links are shared.
 // Usage: node scripts/build-og.mjs
+import { readFileSync } from 'node:fs';
 import { chromium } from '@playwright/test';
+
+// The portrait is inlined as a data URI because setContent pages cannot load local files.
+const photo = `data:image/png;base64,${readFileSync('img/juan-diego-vera-640.png').toString('base64')}`;
 
 const base = `
   * { box-sizing: border-box; margin: 0; }
@@ -17,12 +21,14 @@ const base = `
   .chips span { padding: 9px 16px; border-radius: 10px; border: 1px solid #23314d; background: #111a2e; font: 500 21px "JetBrains Mono", Menlo, monospace; color: #cbd5e1; }
   .term { position: absolute; right: 72px; top: 70px; width: 330px; padding: 18px 20px; border-radius: 14px; background: #060b16; border: 1px solid #1e293b; font: 17px/1.75 "JetBrains Mono", Menlo, monospace; color: #cbd5e1; }
   .ok { color: #34d399; font-weight: 700; } .dim { color: #8b9bb4; }
+  .photo { position: absolute; right: 70px; top: 64px; width: 340px; height: 340px; border-radius: 50%; overflow: hidden; background: radial-gradient(circle at 50% 35%, #a7f3d0 0%, #34d399 45%, #047857 100%); box-shadow: 0 0 0 8px #0b1120, 0 0 0 11px rgba(52,211,153,.6); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 `;
 
 const pages = {
   'og/og-home.png': `
     <div class="top"><div class="mark">JD</div><div class="site">juanvg1529.github.io</div></div>
-    <div class="term"><span class="dim">$</span> run all<br><span class="ok">✓</span> fhir · 19 passed<br><span class="ok">✓</span> playwright · 36 passed<br><span class="ok">✓</span> dotnet · 21 passed<br><span class="ok">✓</span> java · 18 passed<br><span class="ok">ALL GREEN · 94</span></div>
+    <div class="photo"><img src="${photo}" alt=""></div>
     <h1>Juan Diego<br><span>Vera Godoy</span></h1>
     <p class="role">QA Automation Engineer / SDET</p>
     <p class="cred">🎓 Especialista en Ingeniería de Software · énfasis en Pruebas</p>
