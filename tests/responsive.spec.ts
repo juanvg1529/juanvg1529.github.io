@@ -84,7 +84,11 @@ test('the cards around the portrait never cover the face or each other', async (
     await page.goto('/');
     await page.waitForLoadState('networkidle');
     const issues = await page.evaluate(() => {
-      const img = document.querySelector('.portrait')!.getBoundingClientRect();
+      const el = document.querySelector<HTMLElement>('.portrait')!;
+      const rect = el.getBoundingClientRect();
+      const style = getComputedStyle(el);
+      // Use the image's content box (padding excluded): that is where the photo is drawn.
+      const img = { left: rect.left + parseFloat(style.paddingLeft), width: rect.width - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight), top: rect.top, height: rect.height };
       // The face sits in the centre of the upper half of the photo.
       const face = { left: img.left + img.width * 0.38, right: img.left + img.width * 0.62, top: img.top + img.height * 0.08, bottom: img.top + img.height * 0.55 };
       const hit = (a: DOMRect | typeof face, b: DOMRect | typeof face) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;

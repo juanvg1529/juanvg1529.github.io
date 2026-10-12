@@ -446,7 +446,7 @@ h2 { margin: 0; font-size: clamp(1.7rem, 3.2vw, 2.4rem); line-height: 1.15; lett
   .float-card strong { font-size: .8rem; } .float-card small { font-size: .68rem; }
   .fc-icon { width: 28px; height: 28px; font-size: .9rem; }
   /* On phones the cards stay on the jacket, below the chin; the third one repeats the hero text, so it is hidden. */
-  .fc-tests { right: -2%; top: 62%; } .fc-cred { left: -2%; top: auto; bottom: 2%; } .fc-health { display: none; }
+  .fc-tests { right: -2%; top: 66%; } .fc-cred { left: -2%; top: auto; bottom: 1%; } .fc-health { display: none; }
 }
 
 /* ---------- Interactive terminal section ---------- */
