@@ -26,7 +26,9 @@
       </a>
       <nav aria-label="Principal" class="nav">
         <a href="#projects" data-i18n="nav.projects">Proyectos</a>
-        <a href="#approach" data-i18n="nav.approach">Cómo trabajo</a>
+        <a href="#dashboard" data-i18n="nav.dashboard">En vivo</a>
+        <a href="#bughunt" data-i18n="nav.bughunt">Encuentra el bug</a>
+        <a href="#cases" data-i18n="nav.cases">Casos</a>
         <a href="#experience" data-i18n="nav.experience">Experiencia</a>
         <a href="#contact" data-i18n="nav.contact">Contacto</a>
       </nav>
@@ -201,6 +203,162 @@
       </div>
     </section>
 
+    <!-- LIVE DASHBOARD -->
+    <section class="section section-alt" id="dashboard" aria-labelledby="dashboard-title">
+      <div class="container">
+        <p class="kicker" data-i18n="dash.kicker">Calidad en vivo</p>
+        <h2 id="dashboard-title" data-i18n="dash.title">Mis pruebas corren todos los días</h2>
+        <p class="section-lead" data-i18n="dash.lead">Datos reales de GitHub Actions: cada repositorio se ejecuta en cada cambio y cada mañana entre semana. Este panel se regenera a diario.</p>
+        <div class="dash-grid" id="dashboard-grid" aria-live="polite"></div>
+        <p class="dash-updated" id="dashboard-updated"></p>
+      </div>
+    </section>
+
+    <!-- BUG HUNT -->
+    <section class="section" id="bughunt" aria-labelledby="bughunt-title">
+      <div class="container">
+        <p class="kicker" data-i18n="bh.kicker">Juego</p>
+        <h2 id="bughunt-title" data-i18n="bh.title">Encuentra el bug</h2>
+        <p class="section-lead" data-i18n="bh.lead">Este checkout tiene 5 defectos sembrados a propósito. Úsalo como lo haría un tester curioso: cada bug que provoques se convierte en un reporte con la prueba automatizada que lo atraparía.</p>
+        <div class="bh-grid">
+          <div class="bh-app" id="bh-app">
+            <div class="bh-app-bar"><span class="preview-url">https://shop.bug-hunt.test/cart</span></div>
+            <div class="bh-app-body">
+              <div id="bh-lines" class="bh-lines"></div>
+              <div class="bh-coupon">
+                <label for="bh-coupon" data-bh="coupon">Cupón</label>
+                <input id="bh-coupon" type="text" placeholder="QA10" autocomplete="off">
+                <button type="button" id="bh-apply" data-bh="apply">Aplicar</button>
+                <span id="bh-coupon-msg" class="bh-coupon-msg" role="status"></span>
+              </div>
+              <dl class="bh-totals">
+                <div><dt data-bh="subtotal">Subtotal</dt><dd id="bh-subtotal"></dd></div>
+                <div><dt data-bh="discount">Descuento</dt><dd id="bh-discount"></dd></div>
+                <div class="bh-grand"><dt data-bh="total">Total</dt><dd id="bh-total"></dd></div>
+              </dl>
+              <button type="button" id="bh-pay" class="bh-pay" data-bh="pay">Pagar</button>
+              <ul id="bh-orders" class="bh-orders" aria-label="Órdenes"></ul>
+            </div>
+          </div>
+          <div class="bh-side">
+            <div class="bh-score">
+              <p id="bh-progress" class="bh-progress" role="status"></p>
+              <meter id="bh-meter" min="0" max="5" value="0" aria-labelledby="bh-progress"></meter>
+              <p id="bh-toast" class="bh-toast" aria-live="assertive"></p>
+              <details class="bh-hints">
+                <summary data-i18n="bh.hints">¿Necesitas pistas?</summary>
+                <ul>
+                  <li data-i18n="bh.h1">¿Qué pasa si un cupón se usa más de una vez?</li>
+                  <li data-i18n="bh.h2">¿Las cantidades tienen límites?</li>
+                  <li data-i18n="bh.h3">Revisa los centavos con varias unidades del producto más barato.</li>
+                  <li data-i18n="bh.h4">¿Qué hace un usuario impaciente con el botón Pagar?</li>
+                  <li data-i18n="bh.h5">¿Se puede comprar… nada?</li>
+                </ul>
+              </details>
+              <button type="button" id="bh-reset" class="btn btn-ghost bh-reset" data-i18n="bh.reset">Reiniciar</button>
+            </div>
+            <div id="bh-reports" class="bh-reports"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE FILES -->
+    <section class="section section-alt" id="cases" aria-labelledby="cases-title">
+      <div class="container">
+        <p class="kicker" data-i18n="cases.kicker">Expedientes</p>
+        <h2 id="cases-title" data-i18n="cases.title">Bugs difíciles, resueltos con evidencia</h2>
+        <p class="section-lead" data-i18n="cases.lead">Casos reales de estos proyectos. No asumo, demuestro: cada hipótesis se confirma o se descarta con una prueba.</p>
+        <div class="cases">
+          <details class="case">
+            <summary>
+              <span class="case-kind case-kind-defect" data-i18n="case.kind.defect">Defecto de producto</span>
+              <span class="case-title" data-i18n="case1.title">Los cuartos nuevos nunca aparecían en el inicio</span>
+              <span class="case-repo">Playwright · TypeScript</span>
+            </summary>
+            <div class="case-body">
+              <ol class="case-timeline">
+                  <li><strong data-i18n="case.step.symptom">Síntoma</strong> <span data-i18n="case1.symptom">El test "un cuarto creado por API aparece en el inicio" fallaba en Chromium, Firefox y WebKit.</span></li>
+                  <li><strong data-i18n="case.step.hypothesis">Hipótesis</strong> <span data-i18n="case1.hypothesis">¿Caché del navegador o del servidor? ¿Mi test buscaba mal la tarjeta?</span></li>
+                  <li><strong data-i18n="case.step.evidence">Prueba</strong> <span data-i18n="case1.evidence">Intercepté la red: la página recibía 4 cuartos de /api/room pero solo pintaba 3. Busqué en el JavaScript publicado.</span></li>
+                  <li><strong data-i18n="case.step.cause">Causa</strong> <span data-i18n="case1.cause">El frontend hace rooms.slice(0, 3): los cuartos a partir del cuarto nunca se ofrecen a los huéspedes.</span></li>
+                  <li><strong data-i18n="case.step.fix">Resultado</strong> <span data-i18n="case1.fix">BUG-001 documentado con evidencia y un test @known-defect; el chequeo híbrido ahora compara las tarjetas con la API.</span></li>
+              </ol>
+              <a class="case-link" href="https://juanvg1529.github.io/MonsterAutomation/" target="_blank" rel="noopener" data-i18n="report">Reporte en vivo ↗</a>
+            </div>
+          </details>
+          <details class="case">
+            <summary>
+              <span class="case-kind case-kind-flaky" data-i18n="case.kind.flaky">Test intermitente</span>
+              <span class="case-title" data-i18n="case2.title">La búsqueda pasaba una vez y luego fallaba siempre</span>
+              <span class="case-repo">FHIR · C#</span>
+            </summary>
+            <div class="case-body">
+              <ol class="case-timeline">
+                  <li><strong data-i18n="case.step.symptom">Síntoma</strong> <span data-i18n="case2.symptom">"Buscar paciente por apellido y fecha de nacimiento" pasaba en la primera corrida y fallaba en todas las siguientes.</span></li>
+                  <li><strong data-i18n="case.step.hypothesis">Hipótesis</strong> <span data-i18n="case2.hypothesis">El servidor HAPI FHIR reutiliza resultados de búsquedas idénticas recientes.</span></li>
+                  <li><strong data-i18n="case.step.evidence">Prueba</strong> <span data-i18n="case2.evidence">Lo reproduje con curl: creé un paciente y la misma búsqueda no lo devolvía; con Cache-Control: no-cache sí aparecía.</span></li>
+                  <li><strong data-i18n="case.step.cause">Causa</strong> <span data-i18n="case2.cause">Caché de búsquedas del servidor: comportamiento documentado de HAPI, no un defecto, pero oculta datos recién creados.</span></li>
+                  <li><strong data-i18n="case.step.fix">Resultado</strong> <span data-i18n="case2.fix">El cliente envía Cache-Control: no-cache en cada búsqueda → 14 corridas seguidas en verde.</span></li>
+              </ol>
+              <a class="case-link" href="https://juanvg1529.github.io/fhir-api-automation/" target="_blank" rel="noopener" data-i18n="report">Reporte en vivo ↗</a>
+            </div>
+          </details>
+          <details class="case">
+            <summary>
+              <span class="case-kind case-kind-env" data-i18n="case.kind.env">Entorno</span>
+              <span class="case-title" data-i18n="case3.title">Chrome se tragaba los clics</span>
+              <span class="case-repo">Java · Selenium</span>
+            </summary>
+            <div class="case-body">
+              <ol class="case-timeline">
+                  <li><strong data-i18n="case.step.symptom">Síntoma</strong> <span data-i18n="case3.symptom">El carrito quedaba en 0 tras agregar productos y el menú de logout nunca abría. Solo en Chrome.</span></li>
+                  <li><strong data-i18n="case.step.hypothesis">Hipótesis</strong> <span data-i18n="case3.hypothesis">¿Locators incorrectos tras un cambio del sitio?</span></li>
+                  <li><strong data-i18n="case.step.evidence">Prueba</strong> <span data-i18n="case3.evidence">Volqué todos los atributos data-test de cada página: todos los locators existían. La hipótesis quedó descartada.</span></li>
+                  <li><strong data-i18n="case.step.cause">Causa</strong> <span data-i18n="case3.cause">Las credenciales públicas de SauceDemo disparan el aviso "contraseña filtrada" de Chrome, que bloquea la página.</span></li>
+                  <li><strong data-i18n="case.step.fix">Resultado</strong> <span data-i18n="case3.fix">Gestor de contraseñas y detección de filtraciones desactivados con preferencias de Chrome en el DriverFactory.</span></li>
+              </ol>
+              <a class="case-link" href="https://juanvg1529.github.io/java-selenium-cucumber-framework/" target="_blank" rel="noopener" data-i18n="report">Reporte en vivo ↗</a>
+            </div>
+          </details>
+          <details class="case">
+            <summary>
+              <span class="case-kind case-kind-flaky" data-i18n="case.kind.flaky">Test intermitente</span>
+              <span class="case-title" data-i18n="case4.title">StaleElementReferenceException al quitar del carrito</span>
+              <span class="case-repo">Java · Selenium</span>
+            </summary>
+            <div class="case-body">
+              <ol class="case-timeline">
+                  <li><strong data-i18n="case.step.symptom">Síntoma</strong> <span data-i18n="case4.symptom">Un escenario fallaba de forma intermitente con StaleElementReferenceException.</span></li>
+                  <li><strong data-i18n="case.step.hypothesis">Hipótesis</strong> <span data-i18n="case4.hypothesis">React vuelve a dibujar la lista entre que Selenium encuentra la fila y le hace clic.</span></li>
+                  <li><strong data-i18n="case.step.evidence">Prueba</strong> <span data-i18n="case4.evidence">El stack trace apuntaba a la búsqueda del producto dentro del carrito, justo después de navegar.</span></li>
+                  <li><strong data-i18n="case.step.cause">Causa</strong> <span data-i18n="case4.cause">Referencias a elementos que React ya había reemplazado.</span></li>
+                  <li><strong data-i18n="case.step.fix">Resultado</strong> <span data-i18n="case4.fix">Búsqueda y clic reintentados juntos ignorando elementos obsoletos, y espera a que la lista tenga un elemento menos → 8 corridas en verde.</span></li>
+              </ol>
+              <a class="case-link" href="https://juanvg1529.github.io/java-selenium-cucumber-framework/" target="_blank" rel="noopener" data-i18n="report">Reporte en vivo ↗</a>
+            </div>
+          </details>
+          <details class="case">
+            <summary>
+              <span class="case-kind case-kind-flaky" data-i18n="case.kind.flaky">Test intermitente</span>
+              <span class="case-title" data-i18n="case5.title">Un null aleatorio rompía la validación</span>
+              <span class="case-repo">.NET · C#</span>
+            </summary>
+            <div class="case-body">
+              <ol class="case-timeline">
+                  <li><strong data-i18n="case.step.symptom">Síntoma</strong> <span data-i18n="case5.symptom">"Crear una reserva" fallaba a veces en la validación de esquema JSON.</span></li>
+                  <li><strong data-i18n="case.step.hypothesis">Hipótesis</strong> <span data-i18n="case5.hypothesis">Los datos aleatorios generan un caso que el esquema no acepta.</span></li>
+                  <li><strong data-i18n="case.step.evidence">Prueba</strong> <span data-i18n="case5.evidence">El error del esquema señalaba el campo exacto: /additionalneeds: Value is "null" but should be "string".</span></li>
+                  <li><strong data-i18n="case.step.cause">Causa</strong> <span data-i18n="case5.cause">El generador a veces enviaba additionalneeds: null y la API lo devolvía igual.</span></li>
+                  <li><strong data-i18n="case.step.fix">Resultado</strong> <span data-i18n="case5.fix">El campo opcional se omite en vez de enviarse como null. Verificado forzando el caso en los 21 escenarios y con 37 corridas repetidas.</span></li>
+              </ol>
+              <a class="case-link" href="https://juanvg1529.github.io/dotnet-api-automation-framework/" target="_blank" rel="noopener" data-i18n="report">Reporte en vivo ↗</a>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- APPROACH -->
     <section class="section section-alt" id="approach" aria-labelledby="approach-title">
       <div class="container">
@@ -299,5 +457,7 @@
 
   <script src="i18n.js"></script>
   <script src="terminal.js"></script>
+  <script src="dashboard.js"></script>
+  <script src="bughunt.js"></script>
 </body>
 </html>

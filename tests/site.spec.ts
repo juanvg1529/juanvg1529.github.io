@@ -53,3 +53,10 @@ test.describe('Portfolio site', () => {
     });
   }
 });
+
+test('the published dashboard data is fresh', async ({ request }) => {
+  test.skip(!process.env.SITE_URL, 'only meaningful against the deployed site');
+  const stats = await (await request.get('/data/stats.json')).json();
+  expect(stats.repos).toHaveLength(5);
+  expect(Date.now() - Date.parse(stats.generatedAt)).toBeLessThan(26 * 3600_000);
+});

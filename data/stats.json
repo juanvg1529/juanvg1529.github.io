@@ -1,0 +1,101 @@
+{
+  "generatedAt": "2026-10-12T03:21:13.603Z",
+  "repos": [
+    {
+      "key": "fhir",
+      "repo": "fhir-api-automation",
+      "workflow": "fhir-tests.yml",
+      "report": "https://juanvg1529.github.io/fhir-api-automation/",
+      "runs": [
+        {
+          "conclusion": "success",
+          "event": "push",
+          "startedAt": "2026-10-12T01:30:57Z",
+          "durationSeconds": 77,
+          "url": "https://github.com/juanvg1529/fhir-api-automation/actions/runs/38192188356"
+        }
+      ]
+    },
+    {
+      "key": "playwright",
+      "repo": "MonsterAutomation",
+      "workflow": "playwright.yml",
+      "report": "https://juanvg1529.github.io/MonsterAutomation/",
+      "runs": [
+        {
+          "conclusion": "success",
+          "event": "push",
+          "startedAt": "2026-10-12T02:27:55Z",
+          "durationSeconds": 134,
+          "url": "https://github.com/juanvg1529/MonsterAutomation/actions/runs/38195883513"
+        }
+      ]
+    },
+    {
+      "key": "dotnet",
+      "repo": "dotnet-api-automation-framework",
+      "workflow": "api-tests.yml",
+      "report": "https://juanvg1529.github.io/dotnet-api-automation-framework/",
+      "runs": [
+        {
+          "conclusion": "success",
+          "event": "push",
+          "startedAt": "2026-10-12T01:32:32Z",
+          "durationSeconds": 62,
+          "url": "https://github.com/juanvg1529/dotnet-api-automation-framework/actions/runs/38192289454"
+        },
+        {
+          "conclusion": "success",
+          "event": "push",
+          "startedAt": "2026-10-12T01:17:46Z",
+          "durationSeconds": 78,
+          "url": "https://github.com/juanvg1529/dotnet-api-automation-framework/actions/runs/38191333638"
+        },
+        {
+          "conclusion": "success",
+          "event": "push",
+          "startedAt": "2026-10-12T01:10:40Z",
+          "durationSeconds": 59,
+          "url": "https://github.com/juanvg1529/dotnet-api-automation-framework/actions/runs/38190871995"
+        }
+      ]
+    },
+    {
+      "key": "java",
+      "repo": "java-selenium-cucumber-framework",
+      "workflow": "tests.yml",
+      "report": "https://juanvg1529.github.io/java-selenium-cucumber-framework/",
+      "runs": [
+        {
+          "conclusion": "success",
+          "event": "push",
+          "startedAt": "2026-10-12T02:54:01Z",
+          "durationSeconds": 54,
+          "url": "https://github.com/juanvg1529/java-selenium-cucumber-framework/actions/runs/38197607388"
+        }
+      ]
+    },
+    {
+      "key": "site",
+      "repo": "juanvg1529.github.io",
+      "workflow": "site-tests.yml",
+      "report": "https://github.com/juanvg1529/juanvg1529.github.io/actions",
+      "runs": [
+        {
+          "conclusion": "success",
+          "event": "push",
+          "startedAt": "2026-10-12T03:16:27Z",
+          "durationSeconds": 126,
+          "url": "https://github.com/juanvg1529/juanvg1529.github.io/actions/runs/38199103940"
+        },
+        {
+          "conclusion": "success",
+          "event": "push",
+          "startedAt": "2026-10-12T03:04:11Z",
+          "durationSeconds": 104,
+          "url": "https://github.com/juanvg1529/juanvg1529.github.io/actions/runs/38198294911"
+        }
+      ]
+    }
+  ]
+}

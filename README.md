@@ -10,7 +10,23 @@ The hero is a working terminal. Type `help`, `run all`, `run fhir`, `dotnet test
 
 `demo` opens a small app inside the terminal, and a Playwright-style UI test fills it in step by step: a negative case and a booking. Visitors can then use the form themselves.
 
-## Tests (40 runs on desktop + mobile)
+## Live quality dashboard
+
+`scripts/build-stats.mjs` reads the last 20 GitHub Actions runs of each project (and of this site) and writes `data/stats.json`. The deploy job runs it every day. The dashboard shows status, pass rate, average duration, last run and a run history for each repository.
+
+## Find the bug
+
+A tiny checkout with **5 deliberate defects**: a stacking coupon, negative quantities, a floating-point cent, a double charge on double-click, and paying an empty cart. Triggering one reveals a bug report, with steps, expected vs. actual, severity and the Playwright test that would catch it.
+
+## Case files
+
+Five real debugging stories from the projects, each told as symptom → hypothesis → evidence → root cause → outcome.
+
+## Tests (70+ runs on desktop + mobile)
+
+- **Dashboard:** tested with **mocked network data**, which checks pass rate, status, average duration, history bars, singular/plural, English mode and the error state when the data can't load.
+- **Find the bug:** every bug is triggered through real user actions; also the full game, reset, an invalid coupon and the language switch.
+- **Case files:** they open and are translated to English.
 
 - **User actions on the terminal:**
   - typing commands, tapping suggestions and using stack aliases;
@@ -26,7 +42,8 @@ The hero is a working terminal. Type `help`, `run all`, `run fhir`, `dotnet test
   - the greeting and the language switch (ES ⇄ EN, `?lang=en`);
   - each project links only to its live report, and every report returns `200`;
   - there is no horizontal scroll on mobile.
-- **Accessibility:** zero WCAG 2.1 AA violations (axe-core) in light and dark mode, and with the demo open.
+- **Accessibility:** zero WCAG 2.1 AA violations (axe-core) in light and dark mode, with the demo open, and with bug reports and case files expanded.
+- **Live checks:** after deploying, the suite runs against the live site and checks that the dashboard data is less than 26 hours old.
 
 ```bash
 npm ci && npx playwright install chromium
