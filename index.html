@@ -58,17 +58,53 @@
           </ul>
         </div>
 
-        <figure class="terminal" aria-label="Resultados de las suites de pruebas del portafolio">
-          <div class="terminal-bar" aria-hidden="true"><span></span><span></span><span></span><em>ci / portfolio</em></div>
-          <pre class="terminal-body" id="terminal" tabindex="0"><code><span class="t-dim">$</span> run-portfolio-suites
-<span class="t-ok">✓</span> fhir-api-automation           <span class="t-num">19 passed</span>
-<span class="t-ok">✓</span> playwright-hybrid (3 browsers) <span class="t-num">36 passed</span>
-<span class="t-ok">✓</span> dotnet-api-automation          <span class="t-num">21 passed</span>
-<span class="t-ok">✓</span> java-selenium-cucumber         <span class="t-num">18 passed</span>
-<span class="t-warn">!</span> defects documented             <span class="t-num">6 open</span>
-<span class="t-dim">────────────────────────────────────────</span>
-<span class="t-ok">ALL GREEN</span> <span class="t-dim">· reports published to GitHub Pages</span><span class="cursor" aria-hidden="true">▌</span></code></pre>
-        </figure>
+        <div class="lab">
+          <figure class="terminal" aria-labelledby="terminal-title">
+            <div class="terminal-bar"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><em id="terminal-title">jdvg@portfolio: ~/test-runner</em></div>
+            <div class="terminal-body" id="terminal-output" role="log" aria-live="polite" aria-label="Salida de la terminal" tabindex="0">
+              <div class="line"><span class="t-ok">run-portfolio-suites</span></div>
+              <div class="line"><span class="t-ok">✓</span> fhir-api-automation · 19 passed</div>
+              <div class="line"><span class="t-ok">✓</span> playwright-hybrid · 36 passed</div>
+              <div class="line"><span class="t-ok">✓</span> dotnet-api-automation · 21 passed</div>
+              <div class="line"><span class="t-ok">✓</span> java-selenium-cucumber · 18 passed</div>
+            </div>
+            <form class="terminal-input" id="terminal-form" autocomplete="off">
+              <label class="prompt" for="terminal-cmd">$</label>
+              <input id="terminal-cmd" name="command" type="text" spellcheck="false" autocapitalize="off" enterkeyhint="go" placeholder="help" aria-describedby="terminal-help">
+            </form>
+            <div class="preview" id="preview" hidden>
+              <div class="preview-bar">
+                <span class="preview-url">https://demo.shady-meadows.test</span>
+                <button type="button" class="preview-close" id="preview-close" aria-label="Cerrar demo">×</button>
+              </div>
+              <div class="preview-page">
+                <span class="demo-cursor" id="demo-cursor" aria-hidden="true"></span>
+                <h3 class="demo-title">Shady Meadows · Book a room</h3>
+                <form id="demo-form" class="demo-form" novalidate>
+                  <label for="demo-name">Name</label>
+                  <input id="demo-name" type="text" autocomplete="off">
+                  <label for="demo-email">Email</label>
+                  <input id="demo-email" type="email" autocomplete="off">
+                  <label for="demo-room">Room</label>
+                  <select id="demo-room"><option>Single</option><option>Double</option><option>Suite</option></select>
+                  <button id="demo-book" type="submit">Book</button>
+                  <p class="demo-error" id="demo-error" role="alert"></p>
+                  <p class="demo-confirmation" id="demo-confirmation" role="status" hidden></p>
+                </form>
+              </div>
+            </div>
+          </figure>
+          <div class="term-hints">
+            <p id="terminal-help" data-i18n="term.hint">Es interactiva: escribe un comando o toca uno.</p>
+            <div class="hint-buttons">
+              <button type="button" data-command="help">help</button>
+              <button type="button" data-command="run all">run all</button>
+              <button type="button" data-command="demo">demo</button>
+              <button type="button" data-command="run fhir">run fhir</button>
+              <button type="button" data-command="defects">defects</button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -87,7 +123,7 @@
       <div class="container">
         <p class="kicker" data-i18n="projects.kicker">Portafolio</p>
         <h2 id="projects-title" data-i18n="projects.title">Proyectos que puedes ejecutar hoy</h2>
-        <p class="section-lead" data-i18n="projects.lead">Cada repositorio corre en GitHub Actions y publica su reporte. Mi código profesional está bajo acuerdos de confidencialidad, así que aquí muestro cómo diseño frameworks con sistemas públicos.</p>
+        <p class="section-lead" data-i18n="projects.lead">Cada proyecto corre en GitHub Actions y publica su reporte en vivo. Mi código profesional está bajo acuerdos de confidencialidad, así que aquí muestro cómo diseño frameworks con sistemas públicos.</p>
 
         <div class="projects">
           <article class="project featured">
@@ -104,7 +140,6 @@
             </ul>
             <ul class="chips" aria-label="Tecnologías"><li>C#</li><li>.NET 10</li><li>Reqnroll</li><li>Firely SDK</li><li>Allure</li></ul>
             <div class="project-links">
-              <a href="https://github.com/juanvg1529/fhir-api-automation" target="_blank" rel="noopener" data-i18n="code">Código ↗</a>
               <a href="https://juanvg1529.github.io/fhir-api-automation/" target="_blank" rel="noopener" data-i18n="report">Reporte en vivo ↗</a>
             </div>
           </article>
@@ -123,7 +158,6 @@
             </ul>
             <ul class="chips" aria-label="Tecnologías"><li>Playwright</li><li>TypeScript</li><li>axe-core</li><li>GitHub Actions</li></ul>
             <div class="project-links">
-              <a href="https://github.com/juanvg1529/MonsterAutomation" target="_blank" rel="noopener" data-i18n="code">Código ↗</a>
               <a href="https://juanvg1529.github.io/MonsterAutomation/" target="_blank" rel="noopener" data-i18n="report">Reporte en vivo ↗</a>
             </div>
           </article>
@@ -142,7 +176,6 @@
             </ul>
             <ul class="chips" aria-label="Tecnologías"><li>C#</li><li>Reqnroll</li><li>NUnit</li><li>RestSharp</li><li>JSON Schema</li></ul>
             <div class="project-links">
-              <a href="https://github.com/juanvg1529/dotnet-api-automation-framework" target="_blank" rel="noopener" data-i18n="code">Código ↗</a>
               <a href="https://juanvg1529.github.io/dotnet-api-automation-framework/" target="_blank" rel="noopener" data-i18n="report">Reporte en vivo ↗</a>
             </div>
           </article>
@@ -161,7 +194,6 @@
             </ul>
             <ul class="chips" aria-label="Tecnologías"><li>Java 21</li><li>Selenium 4</li><li>Cucumber</li><li>RestAssured</li></ul>
             <div class="project-links">
-              <a href="https://github.com/juanvg1529/java-selenium-cucumber-framework" target="_blank" rel="noopener" data-i18n="code">Código ↗</a>
               <a href="https://juanvg1529.github.io/java-selenium-cucumber-framework/" target="_blank" rel="noopener" data-i18n="report">Reporte en vivo ↗</a>
             </div>
           </article>
@@ -266,5 +298,6 @@
   </footer>
 
   <script src="i18n.js"></script>
+  <script src="terminal.js"></script>
 </body>
 </html>

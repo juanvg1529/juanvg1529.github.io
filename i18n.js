@@ -20,7 +20,8 @@
     'stats.defects': 'real defects found and documented',
     'projects.kicker': 'Portfolio',
     'projects.title': 'Projects you can run today',
-    'projects.lead': 'Every repository runs in GitHub Actions and publishes its report. My professional code is under NDA, so this is how I design frameworks, shown on public systems.',
+    'projects.lead': 'Every project runs in GitHub Actions and publishes its live report. My professional code is under NDA, so this is how I design frameworks, shown on public systems.',
+    'term.hint': 'It’s interactive: type a command or tap one.',
     'scenarios': 'scenarios',
     'runs': 'runs',
     'code': 'Code ↗',
@@ -88,6 +89,8 @@
 
   function apply(lang) {
     const dictionary = lang === 'en' ? en : es;
+    document.getElementById('terminal-output')?.setAttribute('aria-label', lang === 'en' ? 'Terminal output' : 'Salida de la terminal');
+    document.getElementById('preview-close')?.setAttribute('aria-label', lang === 'en' ? 'Close demo' : 'Cerrar demo');
     nodes.forEach(node => {
       const text = dictionary[node.dataset.i18n];
       if (text !== undefined) node.innerHTML = text;

@@ -23,13 +23,14 @@ test.describe('Portfolio site', () => {
     await expect(page.getByRole('heading', { name: 'Projects you can run today' })).toBeVisible();
   });
 
-  test('every project links to its code and its live report', async ({ page, request }) => {
+  test('every project links only to its live report, and every report is up', async ({ page, request }) => {
     await page.goto('/');
-    const projects = page.locator('article.project');
-    await expect(projects).toHaveCount(4);
+    await expect(page.locator('article.project')).toHaveCount(4);
+    await expect(page.locator('.project-links a', { hasText: /Código|Code/ })).toHaveCount(0);
 
     const links = await page.locator('.project-links a').evaluateAll(as => as.map(a => (a as HTMLAnchorElement).href));
-    expect(links).toHaveLength(8);
+    expect(links).toHaveLength(4);
+    expect(links.every(url => url.startsWith('https://juanvg1529.github.io/'))).toBe(true);
     for (const url of links) {
       const response = await request.get(url);
       expect(response.status(), url).toBe(200);
