@@ -1,29 +1,33 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Laboratorio de automatización UI · Juan Diego Vera</title>
-  <meta name="description" content="Ejecuta con un clic pruebas reales de UI sobre una app de citas médicas y descarga los reportes en HTML, JUnit XML y JSON. Por Juan Diego Vera, QA Automation Engineer / SDET y Especialista en Ingeniería de Software con énfasis en Pruebas.">
+  <!-- English by default. The markup is written in Spanish, so the page stays hidden until the
+       translation is applied (no flash of Spanish); a timeout reveals it even if a script fails. -->
+  <style>html.lang-pending body { visibility: hidden; }</style>
+  <script>(function () { var d = document.documentElement, l = 'en'; try { l = new URLSearchParams(location.search).get('lang') || localStorage.getItem('lang') || 'en'; } catch (e) {} if (l === 'es') { d.lang = 'es'; return; } d.lang = 'en'; d.classList.add('lang-pending'); setTimeout(function () { d.classList.remove('lang-pending'); }, 1500); })();</script>
+  <title>UI Automation Lab · Juan Diego Vera</title>
+  <meta name="description" content="Run real UI tests with one click against a medical appointments app and download the reports as HTML, JUnit XML and JSON. By Juan Diego Vera, QA Automation Engineer / SDET and Specialist in Software Engineering (Software Testing).">
   <meta name="author" content="Juan Diego Vera Godoy">
   <meta name="theme-color" content="#0b1120">
   <link rel="canonical" href="https://juanvg1529.github.io/lab/">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Juan Diego Vera · Portafolio QA">
-  <meta property="og:title" content="Laboratorio de automatización UI · Juan Diego Vera, SDET">
-  <meta property="og:description" content="Ejecuta con un clic pruebas reales de UI sobre una app de citas médicas y descarga los reportes en HTML, JUnit XML y JSON. Por Juan Diego Vera, QA Automation Engineer / SDET y Especialista en Ingeniería de Software con énfasis en Pruebas.">
+  <meta property="og:site_name" content="Juan Diego Vera · QA Portfolio">
+  <meta property="og:title" content="UI Automation Lab · Juan Diego Vera, SDET">
+  <meta property="og:description" content="Run real UI tests with one click against a medical appointments app and download the reports as HTML, JUnit XML and JSON. By Juan Diego Vera, QA Automation Engineer / SDET and Specialist in Software Engineering (Software Testing).">
   <meta property="og:url" content="https://juanvg1529.github.io/lab/">
   <meta property="og:image" content="https://juanvg1529.github.io/og/og-lab.png">
   <meta property="og:image:secure_url" content="https://juanvg1529.github.io/og/og-lab.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Laboratorio de automatización UI: pruebas reales con un clic y reportes descargables">
-  <meta property="og:locale" content="es_CO">
-  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image:alt" content="UI automation lab: real tests with one click and downloadable reports">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_CO">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Laboratorio de automatización UI · Juan Diego Vera, SDET">
-  <meta name="twitter:description" content="Ejecuta con un clic pruebas reales de UI sobre una app de citas médicas y descarga los reportes en HTML, JUnit XML y JSON. Por Juan Diego Vera, QA Automation Engineer / SDET y Especialista en Ingeniería de Software con énfasis en Pruebas.">
+  <meta name="twitter:title" content="UI Automation Lab · Juan Diego Vera, SDET">
+  <meta name="twitter:description" content="Run real UI tests with one click against a medical appointments app and download the reports as HTML, JUnit XML and JSON. By Juan Diego Vera, QA Automation Engineer / SDET and Specialist in Software Engineering (Software Testing).">
   <meta name="twitter:image" content="https://juanvg1529.github.io/og/og-lab.png">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f172a'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='700' font-size='28' fill='%2334d399'>JD</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">

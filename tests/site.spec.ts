@@ -98,7 +98,8 @@ test.describe('sharing and search metadata', () => {
       await page.goto(path);
       const meta = async (attr: string, key: string) => page.locator(`meta[${attr}="${key}"]`).getAttribute('content');
       expect(await meta('property', 'og:title')).toContain('Juan Diego Vera');
-      expect(await meta('property', 'og:description')).toContain('Especialista en Ingeniería de Software');
+      expect(await meta('property', 'og:description')).toContain('Specialist in Software Engineering');
+      expect(await meta('property', 'og:locale')).toBe('en_US');
       expect(await meta('property', 'og:url')).toBe(`https://juanvg1529.github.io${path}`);
       expect(await meta('name', 'twitter:card')).toBe('summary_large_image');
       expect(await page.locator('link[rel="canonical"]').getAttribute('href')).toBe(`https://juanvg1529.github.io${path}`);

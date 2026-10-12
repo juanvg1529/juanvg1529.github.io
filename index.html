@@ -1,37 +1,41 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- English by default. The markup is written in Spanish, so the page stays hidden until the
+       translation is applied (no flash of Spanish); a timeout reveals it even if a script fails. -->
+  <style>html.lang-pending body { visibility: hidden; }</style>
+  <script>(function () { var d = document.documentElement, l = 'en'; try { l = new URLSearchParams(location.search).get('lang') || localStorage.getItem('lang') || 'en'; } catch (e) {} if (l === 'es') { d.lang = 'es'; return; } d.lang = 'en'; d.classList.add('lang-pending'); setTimeout(function () { d.classList.remove('lang-pending'); }, 1500); })();</script>
   <title>Juan Diego Vera · QA Automation Engineer / SDET</title>
-  <meta name="description" content="Especialista en Ingeniería de Software con énfasis en Pruebas. 5 años automatizando pruebas de API y UI, 3 en software de salud regulado por la FDA (Roche · HL7). Portafolio con 4 frameworks en CI, laboratorio de UI en vivo y reportes reales.">
+  <meta name="description" content="Specialist in Software Engineering with an emphasis on Software Testing. 5 years automating API and UI tests, 3 of them on FDA-regulated healthcare software (Roche · HL7). Portfolio with 4 frameworks in CI, a live UI testing lab and real reports.">
   <meta name="author" content="Juan Diego Vera Godoy">
   <meta name="theme-color" content="#0b1120">
   <link rel="canonical" href="https://juanvg1529.github.io/">
   <!-- Open Graph: preview when the link is shared (WhatsApp, LinkedIn, Slack, Facebook, Teams…) -->
   <meta property="og:type" content="profile">
-  <meta property="og:site_name" content="Juan Diego Vera · Portafolio QA">
-  <meta property="og:title" content="Juan Diego Vera · QA Automation Engineer / SDET · Especialista en Pruebas de Software">
-  <meta property="og:description" content="Especialista en Ingeniería de Software con énfasis en Pruebas. 5 años automatizando pruebas de API y UI, 3 en software de salud regulado por la FDA (Roche · HL7). Portafolio con 4 frameworks en CI, laboratorio de UI en vivo y reportes reales.">
+  <meta property="og:site_name" content="Juan Diego Vera · QA Portfolio">
+  <meta property="og:title" content="Juan Diego Vera · QA Automation Engineer / SDET · Specialist in Software Testing">
+  <meta property="og:description" content="Specialist in Software Engineering with an emphasis on Software Testing. 5 years automating API and UI tests, 3 of them on FDA-regulated healthcare software (Roche · HL7). Portfolio with 4 frameworks in CI, a live UI testing lab and real reports.">
   <meta property="og:url" content="https://juanvg1529.github.io/">
   <meta property="og:image" content="https://juanvg1529.github.io/og/og-home.png">
   <meta property="og:image:secure_url" content="https://juanvg1529.github.io/og/og-home.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Juan Diego Vera Godoy, QA Automation Engineer / SDET, Especialista en Ingeniería de Software con énfasis en Pruebas">
-  <meta property="og:locale" content="es_CO">
-  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image:alt" content="Juan Diego Vera Godoy, QA Automation Engineer / SDET, Specialist in Software Engineering (Software Testing)">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_CO">
   <meta property="profile:first_name" content="Juan Diego">
   <meta property="profile:last_name" content="Vera Godoy">
   <!-- X / Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Juan Diego Vera · QA Automation Engineer / SDET · Especialista en Pruebas de Software">
-  <meta name="twitter:description" content="Especialista en Ingeniería de Software con énfasis en Pruebas. 5 años automatizando pruebas de API y UI, 3 en software de salud regulado por la FDA (Roche · HL7). Portafolio con 4 frameworks en CI, laboratorio de UI en vivo y reportes reales.">
+  <meta name="twitter:title" content="Juan Diego Vera · QA Automation Engineer / SDET · Specialist in Software Testing">
+  <meta name="twitter:description" content="Specialist in Software Engineering with an emphasis on Software Testing. 5 years automating API and UI tests, 3 of them on FDA-regulated healthcare software (Roche · HL7). Portfolio with 4 frameworks in CI, a live UI testing lab and real reports.">
   <meta name="twitter:image" content="https://juanvg1529.github.io/og/og-home.png">
   <meta name="twitter:image:alt" content="Juan Diego Vera Godoy, QA Automation Engineer / SDET">
   <!-- Structured data for search engines -->
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Juan Diego Vera Godoy", "url": "https://juanvg1529.github.io/", "image": "https://juanvg1529.github.io/img/jdv-portrait-560.png", "jobTitle": "QA Automation Engineer / SDET", "description": "Especialista en Ingeniería de Software con énfasis en Pruebas. 5 años automatizando pruebas de API y UI, 3 en software de salud regulado por la FDA (Roche · HL7). Portafolio con 4 frameworks en CI, laboratorio de UI en vivo y reportes reales.", "email": "mailto:rockjdvg1529@gmail.com", "address": {"@type": "PostalAddress", "addressLocality": "Medellín", "addressCountry": "CO"}, "sameAs": ["https://www.linkedin.com/in/juan-diego-vera-godoy-3949a6183", "https://github.com/juanvg1529"], "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Universidad Autónoma de Manizales"}, {"@type": "CollegeOrUniversity", "name": "Universidad de Antioquia"}], "hasCredential": [{"@type": "EducationalOccupationalCredential", "credentialCategory": "Especialización (posgrado)", "name": "Especialista en Ingeniería de Software con énfasis en Pruebas", "recognizedBy": {"@type": "CollegeOrUniversity", "name": "Universidad Autónoma de Manizales"}, "dateCreated": "2025"}, {"@type": "EducationalOccupationalCredential", "credentialCategory": "Pregrado", "name": "Ingeniero Biomédico (Bioingeniería)", "recognizedBy": {"@type": "CollegeOrUniversity", "name": "Universidad de Antioquia"}, "dateCreated": "2021"}], "knowsAbout": ["Test automation", "Software testing", "Playwright", "Selenium", "C#", ".NET", "Java", "TypeScript", "API testing", "BDD", "CI/CD", "HL7", "FHIR", "ISO/IEC 25010", "ISO/IEC 25000", "Accessibility testing (WCAG)"], "knowsLanguage": ["es", "en", "fr"]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Juan Diego Vera Godoy", "url": "https://juanvg1529.github.io/", "image": "https://juanvg1529.github.io/img/jdv-portrait-560.png", "jobTitle": "QA Automation Engineer / SDET", "description": "Specialist in Software Engineering with an emphasis on Software Testing. 5 years automating API and UI tests, 3 of them on FDA-regulated healthcare software (Roche · HL7). Portfolio with 4 frameworks in CI, a live UI testing lab and real reports.", "email": "mailto:rockjdvg1529@gmail.com", "address": {"@type": "PostalAddress", "addressLocality": "Medellín", "addressCountry": "CO"}, "sameAs": ["https://www.linkedin.com/in/juan-diego-vera-godoy-3949a6183", "https://github.com/juanvg1529"], "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Universidad Autónoma de Manizales"}, {"@type": "CollegeOrUniversity", "name": "Universidad de Antioquia"}], "hasCredential": [{"@type": "EducationalOccupationalCredential", "credentialCategory": "Especialización (posgrado)", "name": "Especialista en Ingeniería de Software con énfasis en Pruebas", "recognizedBy": {"@type": "CollegeOrUniversity", "name": "Universidad Autónoma de Manizales"}, "dateCreated": "2025", "alternateName": "Specialist in Software Engineering with an emphasis on Software Testing"}, {"@type": "EducationalOccupationalCredential", "credentialCategory": "Pregrado", "name": "Ingeniero Biomédico (Bioingeniería)", "recognizedBy": {"@type": "CollegeOrUniversity", "name": "Universidad de Antioquia"}, "dateCreated": "2021", "alternateName": "Biomedical Engineer (Bioengineering)"}], "knowsAbout": ["Test automation", "Software testing", "Playwright", "Selenium", "C#", ".NET", "Java", "TypeScript", "API testing", "BDD", "CI/CD", "HL7", "FHIR", "ISO/IEC 25010", "ISO/IEC 25000", "Accessibility testing (WCAG)"], "knowsLanguage": ["es", "en", "fr"]}</script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f172a'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='700' font-size='28' fill='%2334d399'>JD</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

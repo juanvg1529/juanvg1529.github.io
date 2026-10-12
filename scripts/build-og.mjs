@@ -40,15 +40,15 @@ const pages = {
     <div class="stage"><div class="panel"></div><img src="${photo}" alt=""></div>
     <h1>Juan Diego<br><span>Vera Godoy</span></h1>
     <p class="role">QA Automation Engineer / SDET</p>
-    <p class="cred">🎓 Especialista en Ingeniería de Software<br><small>énfasis en Pruebas</small></p>
-    <div class="chips home"><span>5 años</span><span>FDA · HL7 · Roche</span><span>Playwright</span><span>C# / .NET</span></div>`,
+    <p class="cred">🎓 Specialist in Software Engineering<br><small>Software Testing emphasis</small></p>
+    <div class="chips home"><span>5 years</span><span>FDA · HL7 · Roche</span><span>Playwright</span><span>C# / .NET</span></div>`,
   'og/og-lab.png': `
     <div class="top"><div class="mark">JD</div><div class="site">juanvg1529.github.io/lab</div></div>
-    <div class="term"><span class="ok">✓</span> inicia sesión<br><span class="ok">✓</span> agenda una cita<br><span class="ok">✓</span> filtra por especialidad<br><span style="color:#f87171;font-weight:700">✗</span> reserva doble<br><span class="ok">✓</span> cancela una cita<br><span class="ok">6 passed</span> · <span style="color:#f87171">1 failed</span></div>
-    <h1>Laboratorio de<br><span>automatización UI</span></h1>
-    <p class="role">Ejecuta pruebas reales con un clic</p>
-    <p class="cred">Reportes HTML · JUnit XML · JSON</p>
-    <div class="chips"><span>Playwright</span><span>Page Object</span><span>11 pruebas</span><span>Bug inyectado</span><span>Juan Diego Vera · SDET</span></div>`
+    <div class="term"><span class="ok">✓</span> logs in<br><span class="ok">✓</span> books an appointment<br><span class="ok">✓</span> filters by specialty<br><span style="color:#f87171;font-weight:700">✗</span> double booking<br><span class="ok">✓</span> cancels an appointment<br><span class="ok">6 passed</span> · <span style="color:#f87171">1 failed</span></div>
+    <h1>UI Automation<br><span>Lab</span></h1>
+    <p class="role">Run real tests with one click</p>
+    <p class="cred">HTML · JUnit XML · JSON reports</p>
+    <div class="chips"><span>Playwright</span><span>Page Object</span><span>11 tests</span><span>Injected bug</span><span>Juan Diego Vera · SDET</span></div>`
 };
 
 const browser = await chromium.launch();

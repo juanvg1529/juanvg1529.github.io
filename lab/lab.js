@@ -42,9 +42,9 @@
       sSmoke: '▶ Smoke · 2', sRegression: '▶ Regression · 7', sNegative: '▶ Negative · 4', sAll: '▶ All · 11'
     }
   };
-  let lang = 'es';
-  try { lang = new URLSearchParams(location.search).get('lang') || localStorage.getItem('lang') || 'es'; } catch (e) { /* default */ }
-  if (lang !== 'en') lang = 'es';
+  let lang = 'en'; // English by default, like the portfolio
+  try { lang = new URLSearchParams(location.search).get('lang') || localStorage.getItem('lang') || 'en'; } catch (e) { /* default */ }
+  if (lang !== 'es') lang = 'en';
   const t = () => I18N[lang];
 
   // ======================= DOM =======================
@@ -500,6 +500,7 @@
     applyLang();
   });
   applyLang();
+  document.documentElement.classList.remove('lang-pending');
 
   // Exposed for the site's own Playwright tests.
   window.__lab = { tests: TESTS.map(x => ({ id: x.id, tags: x.tags })) };

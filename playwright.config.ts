@@ -9,7 +9,13 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   reporter: [['list'], ['html', { open: 'never' }]],
-  use: { baseURL: SITE_URL, trace: 'retain-on-failure' },
+  use: {
+    baseURL: SITE_URL,
+    trace: 'retain-on-failure',
+    // The site opens in English, but most specs check the Spanish texts: they start with Spanish
+    // saved as the visitor's choice. default-language.spec.ts clears it to test the real default.
+    storageState: { cookies: [], origins: [{ origin: new URL(SITE_URL).origin, localStorage: [{ name: 'lang', value: 'es' }] }] }
+  },
   webServer: process.env.SITE_URL ? undefined : {
     command: 'python3 -m http.server 4173',
     url: 'http://localhost:4173',

@@ -191,14 +191,16 @@
     try { localStorage.setItem('lang', lang); } catch (e) { /* storage may be blocked */ }
   }
 
-  let initial = 'es';
+  let initial = 'en';
   try {
     const saved = localStorage.getItem('lang');
     const fromUrl = new URLSearchParams(location.search).get('lang');
-    // Spanish by default; share ?lang=en with English-speaking recruiters.
-    initial = fromUrl || saved || 'es';
-  } catch (e) { /* default to Spanish */ }
-  if (initial !== 'es') apply('en');
+    // English by default (international recruiters); ?lang=es or the ES button switches to Spanish.
+    initial = fromUrl || saved || 'en';
+  } catch (e) { /* default to English */ }
+  if (initial === 'es') document.documentElement.lang = 'es';
+  else apply('en');
+  document.documentElement.classList.remove('lang-pending');
 
   toggle.addEventListener('click', () => apply(document.documentElement.lang === 'es' ? 'en' : 'es'));
 })();

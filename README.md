@@ -1,6 +1,6 @@
 # juanvg1529.github.io
 
-My portfolio site: **https://juanvg1529.github.io** (Spanish by default, [English version](https://juanvg1529.github.io/?lang=en)).
+My portfolio site: **https://juanvg1529.github.io** (English by default, [Spanish version](https://juanvg1529.github.io/?lang=es)).
 
 Plain HTML, CSS and a few lines of JavaScript, with no build step. As a QA engineer, I test my own site: every change runs Playwright tests before it is deployed, and the same tests run again against the live site after deployment.
 
