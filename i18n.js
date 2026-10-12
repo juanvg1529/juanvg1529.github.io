@@ -147,6 +147,18 @@
     "case5.evidence": "The schema error named the exact field: /additionalneeds: Value is \"null\" but should be \"string\".",
     "case5.cause": "The builder sometimes sent additionalneeds: null and the API echoed it back.",
     "case5.fix": "The optional field is omitted instead of being sent as null. Verified by forcing the case across all 21 scenarios and with 37 repeated runs.",
+    "fc.cred.t": "Specialist",
+    "fc.cred.s": "Software Engineering · Testing",
+    "fc.tests.t": "94 tests passing",
+    "fc.tests.s": "4 frameworks · daily CI",
+    "fc.health.t": "Regulated healthcare",
+    "ts.kicker": "Try it",
+    "ts.title": "My test runner, in your browser",
+    "ts.lead": "Type a command and watch a run built from the real scenarios in my repositories, or launch a UI test that fills in a form in front of you.",
+    "ts.c1": "simulates the 4 suites (94 real scenarios)",
+    "ts.c2": "a live Playwright-style UI test",
+    "ts.c3": "the real defects I found",
+    "ts.c4": "the lab with 11 real tests",
     'footer.tested': 'This site runs its own automated tests (Playwright + axe) on every change, because a QA tests even their portfolio.'
   };
 

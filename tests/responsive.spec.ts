@@ -76,3 +76,28 @@ test('the desktop navigation is always visible and has no menu button', async ({
   await expect(page.getByRole('navigation', { name: 'Principal' })).toBeVisible();
   await expect(page.locator('#menu-toggle')).toBeHidden();
 });
+
+test('the cards around the portrait never cover the face or each other', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  for (const width of [320, 390, 768, 900, 1024, 1100, 1280, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    const issues = await page.evaluate(() => {
+      const img = document.querySelector('.portrait')!.getBoundingClientRect();
+      // The face sits in the centre of the upper half of the photo.
+      const face = { left: img.left + img.width * 0.38, right: img.left + img.width * 0.62, top: img.top + img.height * 0.08, bottom: img.top + img.height * 0.55 };
+      const hit = (a: DOMRect | typeof face, b: DOMRect | typeof face) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
+      const cards = [...document.querySelectorAll<HTMLElement>('.float-card')].filter(c => getComputedStyle(c).display !== 'none')
+        .map(c => ({ name: c.className.split(' ')[1], box: c.getBoundingClientRect() }));
+      const found: string[] = [];
+      for (const c of cards) {
+        if (hit(c.box, face)) found.push(`${c.name} covers the face`);
+        if (c.box.left < 0 || c.box.right > innerWidth) found.push(`${c.name} is off-screen`);
+      }
+      for (let i = 0; i < cards.length; i++) for (let j = i + 1; j < cards.length; j++) if (hit(cards[i].box, cards[j].box)) found.push(`${cards[i].name} overlaps ${cards[j].name}`);
+      return found;
+    });
+    expect(issues, `${width}px`).toEqual([]);
+  }
+});

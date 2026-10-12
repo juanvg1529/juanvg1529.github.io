@@ -138,8 +138,8 @@ test('the portrait loads, is described for screen readers and stays light', asyn
   expect(await photo.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
 
   // The original photo is 1.6 MB; the versions the page serves must stay small.
-  for (const file of ['img/juan-diego-vera-320.webp', 'img/juan-diego-vera-640.webp']) {
+  for (const file of ['img/jdv-portrait-560.webp', 'img/jdv-portrait-1120.webp']) {
     const body = await (await request.get(file)).body();
-    expect(body.length, file).toBeLessThan(60 * 1024);
+    expect(body.length, file).toBeLessThan(90 * 1024);
   }
 });

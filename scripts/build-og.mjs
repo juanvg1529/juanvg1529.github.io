@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { chromium } from '@playwright/test';
 
 // The portrait is inlined as a data URI because setContent pages cannot load local files.
-const photo = `data:image/png;base64,${readFileSync('img/juan-diego-vera-640.png').toString('base64')}`;
+const photo = `data:image/webp;base64,${readFileSync('img/jdv-portrait-1120.webp').toString('base64')}`;
 
 const base = `
   * { box-sizing: border-box; margin: 0; }
@@ -21,18 +21,27 @@ const base = `
   .chips span { padding: 9px 16px; border-radius: 10px; border: 1px solid #23314d; background: #111a2e; font: 500 21px "JetBrains Mono", Menlo, monospace; color: #cbd5e1; }
   .term { position: absolute; right: 72px; top: 70px; width: 330px; padding: 18px 20px; border-radius: 14px; background: #060b16; border: 1px solid #1e293b; font: 17px/1.75 "JetBrains Mono", Menlo, monospace; color: #cbd5e1; }
   .ok { color: #34d399; font-weight: 700; } .dim { color: #8b9bb4; }
-  .photo { position: absolute; right: 70px; top: 64px; width: 340px; height: 340px; border-radius: 50%; overflow: hidden; background: radial-gradient(circle at 50% 35%, #a7f3d0 0%, #34d399 45%, #047857 100%); box-shadow: 0 0 0 8px #0b1120, 0 0 0 11px rgba(52,211,153,.6); }
-  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .cred small { font-size: 21px; font-weight: 600; color: #6ee7b7; }
+  .cred:has(small) { display: inline-block; border-radius: 22px; line-height: 1.35; }
+  .chips.home { width: 680px; bottom: 50px; }
+  .chips.home span { font-size: 19px; padding: 8px 14px; }
+  body.home h1 { margin-top: 30px; font-size: 66px; }
+  body.home .role { margin-top: 14px; font-size: 30px; }
+  body.home .cred { margin-top: 20px; padding: 12px 22px; font-size: 25px; }
+  /* Same treatment as the site's hero: uncropped cut-out photo rising above a gradient panel. */
+  .stage { position: absolute; right: 64px; bottom: 0; width: 380px; height: 520px; }
+  .stage .panel { position: absolute; left: 0; right: 0; bottom: -30px; top: 210px; border-radius: 36px; background: radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,.5), transparent 60%), linear-gradient(160deg, #a7f3d0 0%, #34d399 48%, #059669 100%); }
+  .stage img { position: absolute; left: -10px; bottom: 0; width: 400px; -webkit-mask-image: linear-gradient(180deg, #000 85%, transparent 100%); filter: drop-shadow(0 16px 26px rgba(2,44,34,.4)); }
 `;
 
 const pages = {
   'og/og-home.png': `
     <div class="top"><div class="mark">JD</div><div class="site">juanvg1529.github.io</div></div>
-    <div class="photo"><img src="${photo}" alt=""></div>
+    <div class="stage"><div class="panel"></div><img src="${photo}" alt=""></div>
     <h1>Juan Diego<br><span>Vera Godoy</span></h1>
     <p class="role">QA Automation Engineer / SDET</p>
-    <p class="cred">🎓 Especialista en Ingeniería de Software · énfasis en Pruebas</p>
-    <div class="chips"><span>5 años</span><span>Salud regulada FDA · Roche · HL7</span><span>Playwright</span><span>C# / .NET</span><span>CI/CD</span></div>`,
+    <p class="cred">🎓 Especialista en Ingeniería de Software<br><small>énfasis en Pruebas</small></p>
+    <div class="chips home"><span>5 años</span><span>FDA · HL7 · Roche</span><span>Playwright</span><span>C# / .NET</span></div>`,
   'og/og-lab.png': `
     <div class="top"><div class="mark">JD</div><div class="site">juanvg1529.github.io/lab</div></div>
     <div class="term"><span class="ok">✓</span> inicia sesión<br><span class="ok">✓</span> agenda una cita<br><span class="ok">✓</span> filtra por especialidad<br><span style="color:#f87171;font-weight:700">✗</span> reserva doble<br><span class="ok">✓</span> cancela una cita<br><span class="ok">6 passed</span> · <span style="color:#f87171">1 failed</span></div>
@@ -45,7 +54,8 @@ const pages = {
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
 for (const [file, body] of Object.entries(pages)) {
-  await page.setContent(`<!doctype html><html><head><meta charset="utf-8"><style>${base}</style></head><body>${body}</body></html>`);
+  const cls = file.includes('home') ? 'home' : '';
+  await page.setContent(`<!doctype html><html><head><meta charset="utf-8"><style>${base}</style></head><body class="${cls}">${body}</body></html>`);
   await page.screenshot({ path: file });
   console.log('wrote', file);
 }
