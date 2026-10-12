@@ -61,7 +61,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/build-stats.mjs
       - name: Collect site files
-        run: mkdir _site && cp index.html styles.css i18n.js terminal.js dashboard.js bughunt.js _site/ && cp -r data _site/
+        run: mkdir _site && cp index.html styles.css i18n.js terminal.js dashboard.js bughunt.js _site/ && cp -r data cv _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

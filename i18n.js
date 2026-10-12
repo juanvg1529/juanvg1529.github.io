@@ -9,13 +9,14 @@
     'nav.contact': 'Contact',
     'hero.available': 'Open to new challenges · Remote',
     'hero.hello': 'Hi, my name is',
-    'hero.lead': 'I build test automation that teams trust: frameworks from scratch for APIs and UIs, wired into CI/CD, with traceability from requirement to defect. Three of my five years were spent on healthcare software for Roche.',
+    'hero.lead': 'I build test automation that teams trust: frameworks from scratch for APIs and UIs, wired into CI/CD, with traceability from requirement to defect. Three of my five years were spent on FDA-regulated healthcare software for Roche.',
     'hero.cta.projects': 'See projects',
     'hero.tag.location': '📍 Medellín, Colombia',
     'hero.tag.lang': '🗣️ Spanish · English C1 · French',
     'hero.tag.edu': '🎓 Bioengineer · Postgraduate in Software Testing',
     'stats.years': 'years in test automation',
-    'stats.health': 'years on healthcare software for Roche',
+    'stats.health': 'years on FDA-regulated healthcare software (Roche · HL7)',
+    'cv.download': 'Download CV ↓',
     'stats.frameworks': 'public frameworks with CI and live reports',
     'stats.defects': 'real defects found and documented',
     'projects.kicker': 'Portfolio',
@@ -59,9 +60,9 @@
     'exp.kicker': 'Experience',
     'exp.title': 'Career',
     'exp.solvo.when': 'Dec 2024 — Present',
-    'exp.solvo.d': 'Designed a hybrid API + UI automation framework from scratch (C#, NUnit, Playwright), integrated into Azure DevOps with results in Qase. Test plans, regression, requirements with the client and leading defect triage.',
+    'exp.solvo.d': 'Designed a hybrid API + UI automation framework from scratch (C#, NUnit, Playwright, RestSharp) with ~300 tests, which cut regression from ~4 hours of manual testing to under 30 minutes (the API suite runs in ~4 minutes). Integrated into Azure DevOps with results in Qase.',
     'exp.globant.client': '(client: Roche)',
-    'exp.globant.d': 'Backend automation for healthcare software with .NET and SpecFlow, tool selection, test strategies aligned with project milestones, and code reviews.',
+    'exp.globant.d': 'Backend and HL7 integration test automation for FDA-regulated healthcare software with .NET and SpecFlow; test evidence for releases, tool selection and code reviews.',
     'exp.acamica.d': 'HTML, CSS and JavaScript: the foundation that helps me write robust locators and speak the developers’ language.',
     'skills.kicker': 'Skills',
     'skills.title': 'Stack',
@@ -146,6 +147,7 @@
 
   function apply(lang) {
     const dictionary = lang === 'en' ? en : es;
+    document.querySelectorAll('.cv-link').forEach(a => a.setAttribute('href', `cv/Juan-Diego-Vera-SDET-CV-${lang === 'en' ? 'EN' : 'ES'}.pdf`));
     document.getElementById('terminal-output')?.setAttribute('aria-label', lang === 'en' ? 'Terminal output' : 'Salida de la terminal');
     document.getElementById('preview-close')?.setAttribute('aria-label', lang === 'en' ? 'Close demo' : 'Cerrar demo');
     nodes.forEach(node => {

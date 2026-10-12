@@ -26,7 +26,7 @@ test.describe('Interactive terminal', () => {
   test('typing help lists the available commands', async ({ page }) => {
     const term = terminal(page);
     await term.type('help');
-    for (const command of ['run <suite>', 'demo', 'projects', 'defects', 'contact', 'clear']) {
+    for (const command of ['run <suite>', 'demo', 'projects', 'defects', 'contact', 'cv', 'clear']) {
       await expect(term.output).toContainText(command);
     }
   });

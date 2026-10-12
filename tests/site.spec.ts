@@ -60,3 +60,19 @@ test('the published dashboard data is fresh', async ({ request }) => {
   expect(stats.repos).toHaveLength(5);
   expect(Date.now() - Date.parse(stats.generatedAt)).toBeLessThan(26 * 3600_000);
 });
+
+test('the CV download matches the page language and serves a PDF', async ({ page, request }) => {
+  await page.goto('/');
+  const cv = page.locator('.cv-link').first();
+  await expect(cv).toHaveAttribute('href', 'cv/Juan-Diego-Vera-SDET-CV-ES.pdf');
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  await expect(cv).toHaveAttribute('href', 'cv/Juan-Diego-Vera-SDET-CV-EN.pdf');
+  await expect(cv).toHaveText('Download CV ↓');
+
+  for (const file of ['cv/Juan-Diego-Vera-SDET-CV-ES.pdf', 'cv/Juan-Diego-Vera-SDET-CV-EN.pdf']) {
+    const response = await request.get(file);
+    expect(response.status(), file).toBe(200);
+    expect((await response.body()).subarray(0, 5).toString(), file).toBe('%PDF-');
+  }
+});
+

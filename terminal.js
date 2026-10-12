@@ -96,10 +96,11 @@
         ['defects', 'defectos reales encontrados'],
         ['whoami', 'quién soy'],
         ['contact', 'cómo contactarme'],
+        ['cv', 'descarga mi CV en PDF'],
         ['clear', 'limpia la terminal']
       ],
       aliases: 'También funcionan: dotnet test · npx playwright test · mvn test · npm test',
-      whoami: ['Juan Diego Vera Godoy — QA Automation Engineer / SDET', '5 años en automatización · 3 en software de salud para Roche', 'Bioingeniero · Esp. en Pruebas de Software · Medellín, Colombia'],
+      whoami: ['Juan Diego Vera Godoy — QA Automation Engineer / SDET', '5 años en automatización · 3 en software de salud regulado por la FDA (Roche · HL7)', 'En Solvo: ~300 pruebas, regresión de 4 h a < 30 min', 'Bioingeniero · Esp. en Pruebas de Software · Medellín, Colombia'],
       contact: 'Escríbeme:'
     },
     en: {
@@ -117,10 +118,11 @@
         ['defects', 'real defects found'],
         ['whoami', 'who I am'],
         ['contact', 'how to reach me'],
+        ['cv', 'download my CV as PDF'],
         ['clear', 'clear the terminal']
       ],
       aliases: 'These work too: dotnet test · npx playwright test · mvn test · npm test',
-      whoami: ['Juan Diego Vera Godoy — QA Automation Engineer / SDET', '5 years in test automation · 3 on healthcare software for Roche', 'Bioengineer · Postgraduate in Software Testing · Medellín, Colombia'],
+      whoami: ['Juan Diego Vera Godoy — QA Automation Engineer / SDET', '5 years in test automation · 3 on FDA-regulated healthcare software (Roche · HL7)', 'At Solvo: ~300 tests, regression from 4 h to < 30 min', 'Bioengineer · Postgraduate in Software Testing · Medellín, Colombia'],
       contact: 'Email me:'
     }
   };
@@ -241,6 +243,10 @@
     contact() {
       line([t().contact + ' ', link('mailto:rockjdvg1529@gmail.com', 'rockjdvg1529@gmail.com')]);
       line(['LinkedIn: ', link('https://www.linkedin.com/in/juan-diego-vera-godoy-3949a6183', 'linkedin.com/in/juan-diego-vera-godoy-3949a6183')]);
+    },
+    cv() {
+      const file = `cv/Juan-Diego-Vera-SDET-CV-${lang() === 'en' ? 'EN' : 'ES'}.pdf`;
+      line([lang() === 'en' ? 'CV (PDF): ' : 'CV (PDF): ', link(file, file.split('/')[1])]);
     },
     clear() { output.replaceChildren(); },
     ls() { COMMANDS.projects(); }
