@@ -1,0 +1,16 @@
+{
+  "name": "juanvg1529.github.io",
+  "private": true,
+  "description": "Portfolio site of Juan Diego Vera Godoy, with its own automated tests",
+  "scripts": {
+    "serve": "python3 -m http.server 4173",
+    "test": "playwright test"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2"
+  }
+}

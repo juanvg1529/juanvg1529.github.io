@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Juan Diego Vera · QA Automation Engineer / SDET</title>
+  <meta name="description" content="Juan Diego Vera Godoy — QA Automation Engineer / SDET con 5 años construyendo automatización de pruebas para APIs y UI, incluyendo 3 años en software de salud para Roche. Portafolio con 4 frameworks en CI.">
+  <meta property="og:title" content="Juan Diego Vera · QA Automation Engineer / SDET">
+  <meta property="og:description" content="Automatización de pruebas en la que los equipos confían: frameworks desde cero para API y UI, CI/CD y software de salud (HL7 FHIR).">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://juanvg1529.github.io/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f172a'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='700' font-size='28' fill='%2334d399'>JD</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top" aria-label="Juan Diego Vera, inicio">
+        <span class="brand-mark" aria-hidden="true">JD</span>
+        <span class="brand-name">Juan Diego Vera</span>
+      </a>
+      <nav aria-label="Principal" class="nav">
+        <a href="#projects" data-i18n="nav.projects">Proyectos</a>
+        <a href="#approach" data-i18n="nav.approach">Cómo trabajo</a>
+        <a href="#experience" data-i18n="nav.experience">Experiencia</a>
+        <a href="#contact" data-i18n="nav.contact">Contacto</a>
+      </nav>
+      <button class="lang-toggle" type="button" id="lang-toggle" aria-label="Switch to English">EN</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> <span data-i18n="hero.available">Disponible para nuevos retos · Remoto</span></p>
+          <h1>
+            <span data-i18n="hero.hello">Hola, mi nombre es</span>
+            <span class="name">Juan Diego Vera.</span>
+          </h1>
+          <p class="role">QA Automation Engineer <span class="sep">/</span> SDET</p>
+          <p class="lead" data-i18n="hero.lead">Construyo automatización de pruebas en la que los equipos confían: frameworks desde cero para APIs y UI, integrados a CI/CD y con trazabilidad de requisito a defecto. Tres de mis cinco años fueron en software de salud para Roche.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects" data-i18n="hero.cta.projects">Ver proyectos</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/juan-diego-vera-godoy-3949a6183" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a class="btn btn-ghost" href="https://github.com/juanvg1529" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <ul class="hero-tags" aria-label="Datos clave">
+            <li data-i18n="hero.tag.location">📍 Medellín, Colombia</li>
+            <li data-i18n="hero.tag.lang">🗣️ Español · English C1 · Français</li>
+            <li data-i18n="hero.tag.edu">🎓 Bioingeniero · Esp. en Pruebas de Software</li>
+          </ul>
+        </div>
+
+        <figure class="terminal" aria-label="Resultados de las suites de pruebas del portafolio">
+          <div class="terminal-bar" aria-hidden="true"><span></span><span></span><span></span><em>ci / portfolio</em></div>
+          <pre class="terminal-body" id="terminal" tabindex="0"><code><span class="t-dim">$</span> run-portfolio-suites
+<span class="t-ok">✓</span> fhir-api-automation           <span class="t-num">19 passed</span>
+<span class="t-ok">✓</span> playwright-hybrid (3 browsers) <span class="t-num">36 passed</span>
+<span class="t-ok">✓</span> dotnet-api-automation          <span class="t-num">21 passed</span>
+<span class="t-ok">✓</span> java-selenium-cucumber         <span class="t-num">18 passed</span>
+<span class="t-warn">!</span> defects documented             <span class="t-num">6 open</span>
+<span class="t-dim">────────────────────────────────────────</span>
+<span class="t-ok">ALL GREEN</span> <span class="t-dim">· reports published to GitHub Pages</span><span class="cursor" aria-hidden="true">▌</span></code></pre>
+        </figure>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats" aria-label="En números">
+      <div class="container stats-grid">
+        <div class="stat"><strong>5</strong><span data-i18n="stats.years">años en automatización de pruebas</span></div>
+        <div class="stat"><strong>3</strong><span data-i18n="stats.health">años en software de salud para Roche</span></div>
+        <div class="stat"><strong>4</strong><span data-i18n="stats.frameworks">frameworks públicos con CI y reportes en vivo</span></div>
+        <div class="stat"><strong>6</strong><span data-i18n="stats.defects">defectos reales encontrados y documentados</span></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <p class="kicker" data-i18n="projects.kicker">Portafolio</p>
+        <h2 id="projects-title" data-i18n="projects.title">Proyectos que puedes ejecutar hoy</h2>
+        <p class="section-lead" data-i18n="projects.lead">Cada repositorio corre en GitHub Actions y publica su reporte. Mi código profesional está bajo acuerdos de confidencialidad, así que aquí muestro cómo diseño frameworks con sistemas públicos.</p>
+
+        <div class="projects">
+          <article class="project featured">
+            <div class="project-head">
+              <span class="badge badge-health" data-i18n="p.fhir.badge">Salud · Interoperabilidad</span>
+              <span class="metric">19 <span data-i18n="scenarios">escenarios</span></span>
+            </div>
+            <h3>FHIR R4 API Automation</h3>
+            <p data-i18n="p.fhir.desc">Pruebas BDD del estándar HL7 FHIR R4, el idioma con el que hospitales y laboratorios intercambian datos clínicos. Un test que pasa debe probar que el dato es clínicamente correcto: paciente, código y unidad.</p>
+            <ul class="highlights">
+              <li data-i18n="p.fhir.h1">Versionado y <code>vread</code>; <code>410 Gone</code> vs <code>404</code>; integridad referencial (<code>409</code>)</li>
+              <li data-i18n="p.fhir.h2">Signos vitales con LOINC + UCUM y errores con <code>OperationOutcome</code></li>
+              <li data-i18n="p.fhir.h3">Hallazgo: la caché de búsquedas del servidor ocultaba datos recién creados</li>
+            </ul>
+            <ul class="chips" aria-label="Tecnologías"><li>C#</li><li>.NET 10</li><li>Reqnroll</li><li>Firely SDK</li><li>Allure</li></ul>
+            <div class="project-links">
+              <a href="https://github.com/juanvg1529/fhir-api-automation" target="_blank" rel="noopener" data-i18n="code">Código ↗</a>
+              <a href="https://juanvg1529.github.io/fhir-api-automation/" target="_blank" rel="noopener" data-i18n="report">Reporte en vivo ↗</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-head">
+              <span class="badge badge-ui" data-i18n="p.pw.badge">API + UI híbrido</span>
+              <span class="metric">36 <span data-i18n="runs">ejecuciones</span></span>
+            </div>
+            <h3>Playwright Hybrid Framework</h3>
+            <p data-i18n="p.pw.desc">Preparo y verifico los datos por API y pruebo el comportamiento por UI, en Chromium, Firefox y WebKit. Rápido, independiente, y confirma lo que llegó al backend, no solo lo que muestra la pantalla.</p>
+            <ul class="highlights">
+              <li data-i18n="p.pw.h1">Sesión de admin por API (<em>storage state</em>) y limpieza automática</li>
+              <li data-i18n="p.pw.h2">Accesibilidad WCAG 2.1 AA con axe-core como control de regresión</li>
+              <li data-i18n="p.pw.h3">2 defectos: el inicio solo muestra 3 cuartos; un cuarto borrado tumba la página (API 500)</li>
+            </ul>
+            <ul class="chips" aria-label="Tecnologías"><li>Playwright</li><li>TypeScript</li><li>axe-core</li><li>GitHub Actions</li></ul>
+            <div class="project-links">
+              <a href="https://github.com/juanvg1529/MonsterAutomation" target="_blank" rel="noopener" data-i18n="code">Código ↗</a>
+              <a href="https://juanvg1529.github.io/MonsterAutomation/" target="_blank" rel="noopener" data-i18n="report">Reporte en vivo ↗</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-head">
+              <span class="badge badge-api" data-i18n="p.net.badge">API · BDD</span>
+              <span class="metric">21 <span data-i18n="scenarios">escenarios</span></span>
+            </div>
+            <h3>.NET API Automation Framework</h3>
+            <p data-i18n="p.net.desc">Framework BDD con una librería cliente separada de las pruebas, datos aislados para ejecutar en paralelo, validación de contratos con JSON Schema y tiempos de respuesta.</p>
+            <ul class="highlights">
+              <li data-i18n="p.net.h1">Plan de pruebas (ISO 25010), matriz de trazabilidad y reportes de bug</li>
+              <li data-i18n="p.net.h2">4 defectos documentados con <code>@known-defect</code> y evidencia <code>curl</code></li>
+              <li data-i18n="p.net.h3">Diagnóstico y corrección de un test intermitente por datos aleatorios</li>
+            </ul>
+            <ul class="chips" aria-label="Tecnologías"><li>C#</li><li>Reqnroll</li><li>NUnit</li><li>RestSharp</li><li>JSON Schema</li></ul>
+            <div class="project-links">
+              <a href="https://github.com/juanvg1529/dotnet-api-automation-framework" target="_blank" rel="noopener" data-i18n="code">Código ↗</a>
+              <a href="https://juanvg1529.github.io/dotnet-api-automation-framework/" target="_blank" rel="noopener" data-i18n="report">Reporte en vivo ↗</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-head">
+              <span class="badge badge-java" data-i18n="p.java.badge">Java · UI + API</span>
+              <span class="metric">18 <span data-i18n="scenarios">escenarios</span></span>
+            </div>
+            <h3>Java Selenium Cucumber Framework</h3>
+            <p data-i18n="p.java.desc">Selenium WebDriver y RestAssured con Cucumber. Lo empecé en 2024 y lo modernicé: Java 21, inyección de dependencias, ejecución en paralelo y locators estables.</p>
+            <ul class="highlights">
+              <li data-i18n="p.java.h1">Total = subtotal + impuesto verificado con <code>BigDecimal</code></li>
+              <li data-i18n="p.java.h2">Arreglé un runner que en Linux nunca ejecutaba los tests de UI</li>
+              <li data-i18n="p.java.h3">Sin estado estático: cada escenario tiene su propio navegador</li>
+            </ul>
+            <ul class="chips" aria-label="Tecnologías"><li>Java 21</li><li>Selenium 4</li><li>Cucumber</li><li>RestAssured</li></ul>
+            <div class="project-links">
+              <a href="https://github.com/juanvg1529/java-selenium-cucumber-framework" target="_blank" rel="noopener" data-i18n="code">Código ↗</a>
+              <a href="https://juanvg1529.github.io/java-selenium-cucumber-framework/" target="_blank" rel="noopener" data-i18n="report">Reporte en vivo ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section class="section section-alt" id="approach" aria-labelledby="approach-title">
+      <div class="container">
+        <p class="kicker" data-i18n="approach.kicker">Cómo trabajo</p>
+        <h2 id="approach-title" data-i18n="approach.title">Calidad que se puede demostrar</h2>
+        <div class="principles">
+          <div class="principle">
+            <span class="principle-num" aria-hidden="true">01</span>
+            <h3 data-i18n="a1.t">Arrange por API, prueba por UI</h3>
+            <p data-i18n="a1.d">Los datos se crean y verifican por API: pruebas rápidas, independientes y que confirman lo que de verdad se guardó.</p>
+          </div>
+          <div class="principle">
+            <span class="principle-num" aria-hidden="true">02</span>
+            <h3 data-i18n="a2.t">Una prueba debe poder fallar</h3>
+            <p data-i18n="a2.d">Antes de confiar en un test verde, rompo a propósito lo que verifica. Si no falla, no está probando nada.</p>
+          </div>
+          <div class="principle">
+            <span class="principle-num" aria-hidden="true">03</span>
+            <h3 data-i18n="a3.t">Defectos visibles, no escondidos</h3>
+            <p data-i18n="a3.d">Un bug conocido se documenta con evidencia y su propio test, que falla a propósito cuando se corrige.</p>
+          </div>
+          <div class="principle">
+            <span class="principle-num" aria-hidden="true">04</span>
+            <h3 data-i18n="a4.t">Trazabilidad de punta a punta</h3>
+            <p data-i18n="a4.d">Requisito → escenario → defecto. En salud aprendí que la calidad es poder demostrar qué se probó y por qué.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="container two-col">
+        <div>
+          <p class="kicker" data-i18n="exp.kicker">Experiencia</p>
+          <h2 id="experience-title" data-i18n="exp.title">Trayectoria</h2>
+          <ol class="timeline">
+            <li>
+              <p class="when" data-i18n="exp.solvo.when">Dic 2024 — Hoy</p>
+              <h3>Software QA Engineer / SDET · Solvo Global</h3>
+              <p data-i18n="exp.solvo.d">Diseñé desde cero un framework híbrido de automatización API + UI (C#, NUnit, Playwright), integrado a Azure DevOps con resultados en Qase. Planes de prueba, regresión, requisitos con el cliente y liderazgo del triage de defectos.</p>
+            </li>
+            <li>
+              <p class="when">Sep 2021 — Dic 2024</p>
+              <h3>Test Automation Engineer · Globant <span class="muted" data-i18n="exp.globant.client">(cliente: Roche)</span></h3>
+              <p data-i18n="exp.globant.d">Automatización backend de software de salud con .NET y SpecFlow, selección de herramientas, estrategias de prueba alineadas a los hitos del proyecto y code reviews.</p>
+            </li>
+            <li>
+              <p class="when">Ene 2021 — Sep 2021</p>
+              <h3>Front End Developer Trainee · Acamica</h3>
+              <p data-i18n="exp.acamica.d">HTML, CSS y JavaScript: la base que hoy me ayuda a escribir locators robustos y a hablar el idioma de los desarrolladores.</p>
+            </li>
+          </ol>
+        </div>
+        <div>
+          <p class="kicker" data-i18n="skills.kicker">Habilidades</p>
+          <h2 data-i18n="skills.title">Stack</h2>
+          <div class="skill-groups">
+            <div class="skill-group"><h3 data-i18n="skills.lang">Lenguajes</h3><ul class="chips"><li>C# / .NET</li><li>TypeScript</li><li>Java</li><li>JavaScript</li><li>SQL</li></ul></div>
+            <div class="skill-group"><h3>UI</h3><ul class="chips"><li>Playwright</li><li>Selenium</li><li>Appium</li><li>POM</li><li>Screenplay</li></ul></div>
+            <div class="skill-group"><h3>API</h3><ul class="chips"><li>REST</li><li>SOAP</li><li>RestSharp</li><li>RestAssured</li><li>Postman</li><li>JSON Schema</li></ul></div>
+            <div class="skill-group"><h3>BDD / Test</h3><ul class="chips"><li>Reqnroll</li><li>SpecFlow</li><li>Cucumber</li><li>NUnit</li><li>JUnit</li><li>TestNG</li></ul></div>
+            <div class="skill-group"><h3>CI/CD</h3><ul class="chips"><li>Azure DevOps</li><li>GitHub Actions</li><li>Git</li><li>SonarQube</li><li>Allure</li><li>Qase</li><li>Jira</li></ul></div>
+            <div class="skill-group"><h3 data-i18n="skills.domain">Dominio y calidad</h3><ul class="chips"><li>HL7 FHIR</li><li>LOINC / UCUM</li><li>ISO/IEC 25010</li><li>WCAG 2.1</li><li>JMeter</li><li>Agile / Scrum</li></ul></div>
+          </div>
+          <div class="edu">
+            <h3 data-i18n="edu.title">Formación</h3>
+            <p data-i18n="edu.spec"><strong>Especialización en Ingeniería de Software con énfasis en Pruebas</strong> · Universidad Autónoma de Manizales · 2025</p>
+            <p data-i18n="edu.bio"><strong>Ingeniería Biomédica (Bioingeniería)</strong> · Universidad de Antioquia · 2021</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-inner">
+        <h2 id="contact-title" data-i18n="contact.title">¿Buscas un SDET que eleve la calidad de tu equipo?</h2>
+        <p data-i18n="contact.lead">Hablemos. Respondo en español, inglés o francés.</p>
+        <div class="cta-row center">
+          <a class="btn btn-primary" href="mailto:rockjdvg1529@gmail.com" data-i18n="contact.email">Escríbeme</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/juan-diego-vera-godoy-3949a6183" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn btn-ghost" href="https://github.com/juanvg1529" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 Juan Diego Vera Godoy</p>
+      <p data-i18n="footer.tested">Este sitio tiene sus propias pruebas automatizadas (Playwright + axe) en cada cambio, porque un QA prueba hasta su portafolio.</p>
+      <a href="https://github.com/juanvg1529/juanvg1529.github.io/actions" target="_blank" rel="noopener"><img src="https://github.com/juanvg1529/juanvg1529.github.io/actions/workflows/site-tests.yml/badge.svg" alt="Estado de las pruebas del sitio" width="150" height="20"></a>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+</body>
+</html>
