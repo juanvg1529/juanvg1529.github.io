@@ -92,6 +92,7 @@
         ['help', 'muestra esta ayuda'],
         ['run <suite>', 'simula la suite: fhir · playwright · dotnet · java · all'],
         ['demo', 'una prueba de UI llena un formulario en vivo (Playwright)'],
+        ['lab', 'abre el laboratorio de automatización UI (11 pruebas reales)'],
         ['projects', 'proyectos y sus reportes en vivo'],
         ['defects', 'defectos reales encontrados'],
         ['whoami', 'quién soy'],
@@ -114,6 +115,7 @@
         ['help', 'show this help'],
         ['run <suite>', 'simulate a suite: fhir · playwright · dotnet · java · all'],
         ['demo', 'watch a UI test fill in a form live (Playwright)'],
+        ['lab', 'open the UI automation lab (11 real tests)'],
         ['projects', 'projects and their live reports'],
         ['defects', 'real defects found'],
         ['whoami', 'who I am'],
@@ -247,6 +249,9 @@
     cv() {
       const file = `cv/Juan-Diego-Vera-SDET-CV-${lang() === 'en' ? 'EN' : 'ES'}.pdf`;
       line([lang() === 'en' ? 'CV (PDF): ' : 'CV (PDF): ', link(file, file.split('/')[1])]);
+    },
+    lab() {
+      line([lang() === 'en' ? 'UI automation lab → ' : 'Laboratorio de automatización UI → ', link('lab/', 'juanvg1529.github.io/lab/')]);
     },
     clear() { output.replaceChildren(); },
     ls() { COMMANDS.projects(); }

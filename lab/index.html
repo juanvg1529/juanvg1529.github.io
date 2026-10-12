@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laboratorio de automatización UI · Juan Diego Vera</title>
+  <meta name="description" content="Ejecuta pruebas automatizadas de UI en vivo sobre una app de citas médicas y descarga los reportes (HTML, JUnit XML, JSON). Por Juan Diego Vera, QA Automation Engineer / SDET.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f172a'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='700' font-size='28' fill='%2334d399'>JD</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="lab.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="../" aria-label="Juan Diego Vera, inicio">
+        <span class="brand-mark" aria-hidden="true">JD</span>
+        <span class="brand-name">Juan Diego Vera</span>
+      </a>
+      <a class="nav-back" href="../" data-l="back">← Volver al portafolio</a>
+      <button class="lang-toggle" type="button" id="lang-toggle" aria-label="Switch to English">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="lab-hero">
+      <div class="container">
+        <p class="kicker">QA · Playwright-style runner</p>
+        <h1 class="lab-title" data-l="title">Laboratorio de automatización UI</h1>
+        <p class="section-lead" data-l="lead">Elige una suite y presiona ejecutar: las pruebas manejan de verdad la app MediCita (clics, escritura y verificaciones) y al final generan un reporte que puedes descargar.</p>
+
+        <div class="controls" role="group" aria-labelledby="suites-label">
+          <span id="suites-label" class="controls-label" data-l="suites">Suites</span>
+          <div class="suite-buttons">
+            <button type="button" class="btn btn-primary" data-suite="smoke" data-l="sSmoke">▶ Smoke · 2</button>
+            <button type="button" class="btn btn-ghost" data-suite="regression" data-l="sRegression">▶ Regresión · 7</button>
+            <button type="button" class="btn btn-ghost" data-suite="negative" data-l="sNegative">▶ Negativos · 4</button>
+            <button type="button" class="btn btn-ghost" data-suite="all" data-l="sAll">▶ Todo · 11</button>
+          </div>
+          <div class="options">
+            <label class="switch"><input type="checkbox" id="bug-toggle"> <span data-l="bug">Inyectar bug: permitir reservas dobles</span></label>
+            <label class="speed"><span data-l="speed">Velocidad</span>
+              <select id="speed"><option value="demo" data-l="demo">Demo (lento)</option><option value="fast" data-l="fast">Rápido</option></select>
+            </label>
+            <button type="button" class="btn btn-ghost btn-stop" id="stop" disabled data-l="stop">Detener</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container lab-grid" aria-label="Ejecución">
+      <div class="browser">
+        <div class="browser-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url" id="url-bar">https://medicita.lab/login</span></div>
+        <div class="viewport" id="viewport">
+          <iframe id="aut" title="MediCita, aplicación bajo prueba" src="app/index.html#/login"></iframe>
+          <span class="lab-cursor" id="lab-cursor" hidden aria-hidden="true"></span>
+        </div>
+      </div>
+      <div class="live">
+        <h2 class="live-title" data-l="live">Ejecución en vivo</h2>
+        <p class="run-status" id="run-status" role="status" aria-live="polite">Elige una suite para empezar.</p>
+        <ol class="live-log" id="live-log" aria-label="Pasos ejecutados" tabindex="0"></ol>
+      </div>
+    </section>
+
+    <section class="container report" id="report" hidden aria-labelledby="report-title">
+      <div class="report-head">
+        <h2 id="report-title" data-l="report">Reporte de ejecución</h2>
+        <div class="downloads">
+          <span data-l="download">Descargar</span>
+          <button type="button" class="btn btn-ghost" id="dl-html">HTML</button>
+          <button type="button" class="btn btn-ghost" id="dl-junit">JUnit XML</button>
+          <button type="button" class="btn btn-ghost" id="dl-json">JSON</button>
+        </div>
+      </div>
+      <div id="report-body" aria-live="polite"></div>
+    </section>
+
+    <section class="container lab-info">
+      <div class="info-card">
+        <h2 data-l="ciTitle">Las mismas pruebas, con Playwright en CI</h2>
+        <p data-l="ciText">Este laboratorio corre en tu navegador. Las mismas pruebas, escritas con Playwright y Page Objects, se ejecutan en GitHub Actions en cada cambio, y este es su reporte oficial:</p>
+        <a class="btn btn-primary" href="report/" target="_blank" rel="noopener" data-l="ciLink">Ver reporte de Playwright ↗</a>
+      </div>
+      <div class="info-card">
+        <h2 data-l="how">Cómo funciona</h2>
+        <ul class="how">
+          <li data-l="how1">App bajo prueba: MediCita, una app de citas médicas con login, búsqueda, agenda con horarios ocupados y cancelación.</li>
+          <li data-l="how2">Runner propio con una API al estilo Playwright: localizadores por rol, etiqueta y test id, y aserciones que reintentan hasta 4 s.</li>
+          <li data-l="how3">Cada test empieza con la app recién cargada: sin estado compartido, igual que un contexto nuevo de navegador.</li>
+          <li data-l="how4">Reportes en HTML, JUnit XML (lo que leen Jenkins, Azure DevOps o GitHub) y JSON.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner"><p>© 2026 Juan Diego Vera Godoy · <a href="../">juanvg1529.github.io</a></p></div>
+  </footer>
+  <script src="lab.js"></script>
+</body>
+</html>

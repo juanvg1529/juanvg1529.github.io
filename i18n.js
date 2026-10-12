@@ -75,6 +75,15 @@
     'contact.lead': 'Let’s talk. I answer in English, Spanish or French.',
     'contact.email': 'Email me',
     "nav.dashboard": "Live",
+    "nav.lab": "UI Lab",
+    "labt.kicker": "Live lab",
+    "labt.title": "Run my UI tests with one click",
+    "labt.lead": "A medical appointments app and a Playwright-style test runner. Press a button and watch the tests log in, book and cancel appointments for real; then download the report as HTML, JUnit XML or JSON.",
+    "labt.h1": "4 suites: smoke, regression, negative and all (11 tests)",
+    "labt.h2": "Inject a bug and watch the regression suite catch it",
+    "labt.h3": "The same tests run with Playwright in CI, with their official report",
+    "labt.cta": "Open the lab →",
+    "labt.ci": "Playwright report ↗",
     "nav.bughunt": "Find the bug",
     "nav.cases": "Cases",
     "dash.kicker": "Live quality",
@@ -147,6 +156,7 @@
 
   function apply(lang) {
     const dictionary = lang === 'en' ? en : es;
+    document.querySelector('.lab-preview')?.setAttribute('aria-label', lang === 'en' ? 'Open the UI automation lab' : 'Abrir el laboratorio de automatización UI');
     document.querySelectorAll('.cv-link').forEach(a => a.setAttribute('href', `cv/Juan-Diego-Vera-SDET-CV-${lang === 'en' ? 'EN' : 'ES'}.pdf`));
     document.getElementById('terminal-output')?.setAttribute('aria-label', lang === 'en' ? 'Terminal output' : 'Salida de la terminal');
     document.getElementById('preview-close')?.setAttribute('aria-label', lang === 'en' ? 'Close demo' : 'Cerrar demo');

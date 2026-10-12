@@ -26,10 +26,10 @@
       </a>
       <nav aria-label="Principal" class="nav">
         <a href="#projects" data-i18n="nav.projects">Proyectos</a>
+        <a href="lab/" data-i18n="nav.lab">Laboratorio UI</a>
         <a href="#dashboard" data-i18n="nav.dashboard">En vivo</a>
         <a href="#bughunt" data-i18n="nav.bughunt">Encuentra el bug</a>
         <a href="#cases" data-i18n="nav.cases">Casos</a>
-        <a href="#experience" data-i18n="nav.experience">Experiencia</a>
         <a href="#contact" data-i18n="nav.contact">Contacto</a>
       </nav>
       <button class="lang-toggle" type="button" id="lang-toggle" aria-label="Switch to English">EN</button>
@@ -200,6 +200,38 @@
             </div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <!-- UI LAB -->
+    <section class="section lab-teaser" id="lab" aria-labelledby="lab-title">
+      <div class="container lab-teaser-grid">
+        <div>
+          <p class="kicker" data-i18n="labt.kicker">Laboratorio en vivo</p>
+          <h2 id="lab-title" data-i18n="labt.title">Ejecuta mis pruebas de UI con un clic</h2>
+          <p class="section-lead" data-i18n="labt.lead">Una app de citas médicas y un runner de pruebas al estilo Playwright. Presiona un botón y mira cómo las pruebas inician sesión, agendan y cancelan citas de verdad; al final descargas el reporte en HTML, JUnit XML o JSON.</p>
+          <ul class="highlights">
+            <li data-i18n="labt.h1">4 suites: smoke, regresión, negativos y todo (11 pruebas)</li>
+            <li data-i18n="labt.h2">Inyecta un bug y mira cómo la regresión lo detecta</li>
+            <li data-i18n="labt.h3">Las mismas pruebas corren con Playwright en CI, con su reporte oficial</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="lab/" data-i18n="labt.cta">Abrir el laboratorio →</a>
+            <a class="btn btn-ghost" href="lab/report/" target="_blank" rel="noopener" data-i18n="labt.ci">Reporte de Playwright ↗</a>
+          </div>
+        </div>
+        <a class="lab-preview" href="lab/" aria-label="Abrir el laboratorio de automatización UI">
+          <span class="lp-bar"><i></i><i></i><i></i><span>medicita.lab</span></span>
+          <span class="lp-body">
+            <span class="lp-row ok">✓ el paciente inicia sesión</span>
+            <span class="lp-row ok">✓ el paciente agenda una cita de principio a fin</span>
+            <span class="lp-row ok">✓ filtra los médicos por especialidad</span>
+            <span class="lp-row ko">✗ un horario ya reservado no se puede volver a reservar</span>
+            <span class="lp-err">expect(locator).toBeDisabled() failed · Expected: disabled · Received: enabled</span>
+            <span class="lp-row ok">✓ el paciente cancela una cita</span>
+            <span class="lp-sum"><b>6</b> passed · <b class="ko">1</b> failed · <span>bug: double-booking</span></span>
+          </span>
+        </a>
       </div>
     </section>
 

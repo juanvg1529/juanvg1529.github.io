@@ -76,3 +76,18 @@ test('the CV download matches the page language and serves a PDF', async ({ page
   }
 });
 
+
+test('the home page anchors the UI lab and its Playwright report', async ({ page }) => {
+  await page.goto('/#lab');
+  await expect(page.getByRole('heading', { name: 'Ejecuta mis pruebas de UI con un clic' })).toBeVisible();
+  await page.getByRole('link', { name: 'Abrir el laboratorio →' }).click();
+  await expect(page).toHaveURL(/\/lab\/$/);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Laboratorio de automatización UI');
+});
+
+test('the published lab has its Playwright report', async ({ request }) => {
+  test.skip(!process.env.SITE_URL, 'the report is generated in CI');
+  const response = await request.get('/lab/report/');
+  expect(response.status()).toBe(200);
+  expect(await response.text()).toContain('Playwright');
+});

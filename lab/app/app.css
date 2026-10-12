@@ -1,0 +1,52 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; background: #f1f5f9; color: #0f172a; font-size: 15px; line-height: 1.5; }
+.app-header { display: flex; align-items: center; gap: 10px; padding: 12px 20px; background: #0e7490; color: #fff; }
+.logo { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: #fff; color: #0e7490; font-weight: 700; }
+.app-nav { margin-left: auto; display: flex; align-items: center; gap: 16px; font-size: .9rem; }
+.app-nav[hidden] { display: none; }
+.app-nav a { color: #fff; }
+.app-nav button { background: transparent; border: 1px solid #a5f3fc; color: #fff; padding: 4px 10px; }
+.app-main { max-width: 760px; margin: 0 auto; padding: 24px 20px 40px; outline: none; }
+h1 { font-size: 1.4rem; margin: 0 0 6px; }
+.muted { color: #475569; font-size: .9rem; }
+.card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 22px; }
+.card.narrow { max-width: 420px; margin: 0 auto; }
+.card.success { border-top: 4px solid #059669; }
+label, legend { display: block; font-weight: 600; font-size: .88rem; margin: 12px 0 4px; }
+input, select, textarea { width: 100%; padding: 9px 11px; border: 1px solid #94a3b8; border-radius: 9px; font: inherit; background: #fff; color: inherit; }
+input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible { outline: 3px solid #0891b2; outline-offset: 2px; }
+button, .button { display: inline-block; margin-top: 14px; padding: 10px 18px; border: 0; border-radius: 9px; background: #0e7490; color: #fff; font-family: inherit; font-weight: 600; font-size: .95rem; text-decoration: none; cursor: pointer; }
+button.secondary { background: #e2e8f0; color: #0f172a; }
+button.danger { background: #b91c1c; }
+.error { color: #b91c1c; font-weight: 600; font-size: .9rem; margin: 10px 0 0; }
+.error:empty { display: none; }
+code { background: #ecfeff; padding: 1px 5px; border-radius: 5px; font-size: .85em; }
+.filters { display: grid; grid-template-columns: 1fr 220px; gap: 12px; margin: 14px 0 6px; }
+.doctor-list, .appointments { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 10px; }
+.doctor-card, .appointment { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; }
+.doctor-card div, .appointment div { display: grid; }
+.doctor-card .button, .appointment button { margin-top: 0; }
+.code { font-family: ui-monospace, monospace; font-size: .8rem; color: #0e7490; }
+.empty { padding: 18px; text-align: center; color: #475569; background: #fff; border: 1px dashed #cbd5e1; border-radius: 12px; }
+.back { font-size: .88rem; color: #0e7490; }
+fieldset { border: 0; padding: 0; margin: 0; }
+.slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.slot { margin: 0; font-weight: 500; }
+.slot input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.slot span { display: block; text-align: center; padding: 8px; border: 1px solid #94a3b8; border-radius: 9px; background: #fff; cursor: pointer; }
+.slot input:checked + span { background: #0e7490; color: #fff; border-color: #0e7490; }
+.slot input:focus-visible + span { outline: 3px solid #0891b2; outline-offset: 2px; }
+.slot input:disabled + span { background: #f1f5f9; color: #64748b; text-decoration: line-through; cursor: not-allowed; }
+.slot.taken input:not(:disabled) + span { border-style: dashed; }
+.details { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; }
+.details dt { font-weight: 600; } .details dd { margin: 0; }
+.toast { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: #0f172a; color: #fff; padding: 8px 16px; border-radius: 999px; font-size: .9rem; }
+.toast:empty { display: none; }
+.modal-backdrop { position: fixed; inset: 0; display: grid; place-items: center; background: rgba(15, 23, 42, .5); }
+.modal-backdrop[hidden] { display: none; }
+.modal { background: #fff; border-radius: 14px; padding: 22px; max-width: 380px; width: calc(100% - 32px); }
+.modal h2 { margin: 0 0 8px; font-size: 1.15rem; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; }
+/* Highlight used by the lab runner while it drives the app */
+.lab-highlight { outline: 3px solid #ec4899 !important; outline-offset: 2px !important; transition: outline-color .15s; }
+@media (max-width: 560px) { .filters { grid-template-columns: 1fr; } .slots { grid-template-columns: repeat(2, 1fr); } }
