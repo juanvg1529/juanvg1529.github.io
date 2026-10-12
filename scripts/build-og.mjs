@@ -31,7 +31,7 @@ const base = `
   /* Same treatment as the site's hero: uncropped cut-out photo rising above a gradient panel. */
   .stage { position: absolute; right: 64px; bottom: 0; width: 380px; height: 520px; }
   .stage .panel { position: absolute; left: 0; right: 0; bottom: -30px; top: 210px; border-radius: 36px; background: radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,.5), transparent 60%), linear-gradient(160deg, #a7f3d0 0%, #34d399 48%, #059669 100%); }
-  .stage img { position: absolute; left: -10px; bottom: 0; width: 400px; -webkit-mask-image: linear-gradient(180deg, #000 85%, transparent 100%); filter: drop-shadow(0 16px 26px rgba(2,44,34,.4)); }
+  .stage img { position: absolute; left: -10px; bottom: 0; width: 400px; box-sizing: border-box; padding-right: 20px; border-radius: 250px; -webkit-mask-image: linear-gradient(180deg, #000 85%, transparent 100%); }
 `;
 
 const pages = {
