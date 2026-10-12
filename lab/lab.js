@@ -54,6 +54,9 @@
   const urlBar = document.getElementById('url-bar');
   const log = document.getElementById('live-log');
   const status = document.getElementById('run-status');
+  const miniStatus = document.getElementById('mini-status');
+  // Mirrors the run status above the app on small screens, where the live log is below the fold.
+  new MutationObserver(() => { miniStatus.textContent = status.textContent; }).observe(status, { childList: true, characterData: true, subtree: true });
   const reportSection = document.getElementById('report');
   const reportBody = document.getElementById('report-body');
   const bugToggle = document.getElementById('bug-toggle');
@@ -357,6 +360,7 @@
     log.replaceChildren();
     reportSection.hidden = true;
     setRunning(true);
+    if (window.matchMedia('(max-width: 980px)').matches) document.querySelector('.browser').scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
     const runStart = performance.now();
 
     try {

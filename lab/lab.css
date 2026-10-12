@@ -1,4 +1,4 @@
-.nav-back { margin-left: auto; color: var(--muted); text-decoration: none; font-weight: 500; font-size: .95rem; }
+.nav-back { margin-left: auto; color: var(--muted); text-decoration: none; font-weight: 500; font-size: .95rem; white-space: nowrap; }
 .nav-back:hover { color: var(--text); }
 .lab-hero { padding: 48px 0 24px; background: radial-gradient(900px 360px at 85% -10%, var(--accent-soft), transparent 70%); }
 .lab-title { font-size: clamp(2rem, 4vw, 3rem); }
@@ -10,7 +10,8 @@
 .btn:disabled { opacity: .55; cursor: not-allowed; transform: none; }
 .options { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; color: var(--muted); font-size: .92rem; }
 .switch { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
-.switch input { width: 18px; height: 18px; accent-color: #dc2626; }
+.switch { min-height: 44px; }
+.switch input { width: 24px; height: 24px; flex-shrink: 0; accent-color: #dc2626; }
 .speed { display: inline-flex; align-items: center; gap: 8px; }
 .speed select { padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font: inherit; }
 .btn-stop { min-height: 38px; cursor: pointer; font-family: inherit; }
@@ -22,6 +23,7 @@
 .dots { display: inline-flex; gap: 6px; } .dots i { width: 10px; height: 10px; border-radius: 50%; background: #f87171; } .dots i:nth-child(2) { background: #fbbf24; } .dots i:nth-child(3) { background: #34d399; }
 .url { flex: 1; min-width: 0; padding: 4px 12px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); color: var(--muted); font: .78rem "JetBrains Mono", monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .viewport { position: relative; height: 560px; background: #f1f5f9; }
+.mini-status { display: none; }
 .viewport iframe { width: 100%; height: 100%; border: 0; display: block; }
 .lab-cursor { position: absolute; left: 0; top: 0; width: 20px; height: 20px; margin: -10px 0 0 -10px; border-radius: 50%; background: rgba(236, 72, 153, .5); border: 2px solid #db2777; pointer-events: none; transition: transform .25s ease; z-index: 3; }
 @media (prefers-reduced-motion: reduce) { .lab-cursor { display: none; } }
@@ -81,3 +83,30 @@
 .info-card h2 { font-size: 1.25rem; }
 .info-card p { color: var(--muted); }
 .how { margin: 12px 0 0; padding-left: 20px; color: var(--muted); display: grid; gap: 6px; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 980px) {
+  .mini-status { display: block; margin: 0; padding: 8px 12px; min-height: 2.4em; background: var(--term-bg); color: var(--term-ok); font: 500 .76rem/1.4 "JetBrains Mono", monospace; border-bottom: 1px solid #1e293b; }
+  .mini-status:empty { display: none; }
+  .viewport { height: 500px; }
+  .live-log { height: 300px; }
+  .browser { scroll-margin-top: 72px; }
+}
+@media (max-width: 760px) {
+  .brand-name { display: none; }
+  .lab-hero { padding: 32px 0 16px; }
+  .controls { padding: 16px; }
+  .suite-buttons { display: grid; grid-template-columns: 1fr 1fr; }
+  .suite-buttons .btn { min-height: 48px; padding: 0 10px; }
+  .options { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .speed { justify-content: space-between; }
+  .speed select { font-size: 16px; min-height: 44px; }
+  .btn-stop { width: 100%; min-height: 46px; }
+  .report-head { flex-direction: column; align-items: flex-start; }
+  .downloads { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); }
+  .downloads > span { grid-column: 1 / -1; }
+  .r-tags { display: none; }
+  .r-test { padding: 0 12px; }
+  .r-steps { padding-left: 16px; }
+  .r-steps li { flex-direction: column; gap: 0; }
+}

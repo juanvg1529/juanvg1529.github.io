@@ -49,4 +49,15 @@ fieldset { border: 0; padding: 0; margin: 0; }
 .modal-actions { display: flex; justify-content: flex-end; gap: 10px; }
 /* Highlight used by the lab runner while it drives the app */
 .lab-highlight { outline: 3px solid #ec4899 !important; outline-offset: 2px !important; transition: outline-color .15s; }
-@media (max-width: 560px) { .filters { grid-template-columns: 1fr; } .slots { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) {
+  .filters { grid-template-columns: 1fr; }
+  .slots { grid-template-columns: repeat(2, 1fr); }
+  /* 16px stops iOS Safari from zooming into a field on focus */
+  input, select, textarea { font-size: 16px; }
+  .app-main { padding: 18px 14px 32px; }
+  .app-nav { gap: 10px; font-size: .85rem; }
+  .doctor-card, .appointment { flex-wrap: wrap; }
+  .slot span { padding: 11px 8px; }
+  .modal-actions { flex-direction: column-reverse; }
+  .modal-actions button { width: 100%; margin-top: 8px; }
+}

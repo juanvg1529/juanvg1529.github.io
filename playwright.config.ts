@@ -17,6 +17,7 @@ export default defineConfig({
   },
   projects: [
     { name: 'desktop', use: { ...devices['Desktop Chrome'] } },
-    { name: 'mobile', use: { ...devices['Pixel 7'] } }
+    // responsive.spec.ts sets its own viewports, so it only runs once (in the desktop project).
+    { name: 'mobile', use: { ...devices['Pixel 7'] }, testIgnore: /responsive\.spec\.ts/ }
   ]
 });
