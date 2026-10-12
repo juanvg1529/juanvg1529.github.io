@@ -101,7 +101,7 @@
         ['clear', 'limpia la terminal']
       ],
       aliases: 'También funcionan: dotnet test · npx playwright test · mvn test · npm test',
-      whoami: ['Juan Diego Vera Godoy — QA Automation Engineer / SDET', '5 años en automatización · 3 en software de salud regulado por la FDA (Roche · HL7)', 'En Solvo: ~300 pruebas, regresión de 4 h a < 30 min', 'Bioingeniero · Esp. en Pruebas de Software · Medellín, Colombia'],
+      whoami: ['Juan Diego Vera Godoy — QA Automation Engineer / SDET', '5 años en automatización · 3 en software de salud regulado por la FDA (Roche · HL7)', 'En Solvo: ~300 pruebas, regresión de 4 h a < 30 min', 'Especialista en Ingeniería de Software con énfasis en Pruebas (UAM)', 'Ingeniero biomédico · Medellín, Colombia'],
       contact: 'Escríbeme:'
     },
     en: {
@@ -124,7 +124,7 @@
         ['clear', 'clear the terminal']
       ],
       aliases: 'These work too: dotnet test · npx playwright test · mvn test · npm test',
-      whoami: ['Juan Diego Vera Godoy — QA Automation Engineer / SDET', '5 years in test automation · 3 on FDA-regulated healthcare software (Roche · HL7)', 'At Solvo: ~300 tests, regression from 4 h to < 30 min', 'Bioengineer · Postgraduate in Software Testing · Medellín, Colombia'],
+      whoami: ['Juan Diego Vera Godoy — QA Automation Engineer / SDET', '5 years in test automation · 3 on FDA-regulated healthcare software (Roche · HL7)', 'At Solvo: ~300 tests, regression from 4 h to < 30 min', 'Specialist in Software Engineering, Software Testing emphasis (UAM)', 'Biomedical engineer · Medellín, Colombia'],
       contact: 'Email me:'
     }
   };

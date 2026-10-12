@@ -91,3 +91,41 @@ test('the published lab has its Playwright report', async ({ request }) => {
   expect(response.status()).toBe(200);
   expect(await response.text()).toContain('Playwright');
 });
+
+test.describe('sharing and search metadata', () => {
+  for (const [path, image] of [['/', 'og-home.png'], ['/lab/', 'og-lab.png']] as const) {
+    test(`${path} has a complete link preview`, async ({ page, request }) => {
+      await page.goto(path);
+      const meta = async (attr: string, key: string) => page.locator(`meta[${attr}="${key}"]`).getAttribute('content');
+      expect(await meta('property', 'og:title')).toContain('Juan Diego Vera');
+      expect(await meta('property', 'og:description')).toContain('Especialista en Ingeniería de Software');
+      expect(await meta('property', 'og:url')).toBe(`https://juanvg1529.github.io${path}`);
+      expect(await meta('name', 'twitter:card')).toBe('summary_large_image');
+      expect(await page.locator('link[rel="canonical"]').getAttribute('href')).toBe(`https://juanvg1529.github.io${path}`);
+
+      // Crawlers need an absolute image URL; check the file the site serves is a 1200x630 PNG.
+      const imageUrl = (await meta('property', 'og:image'))!;
+      expect(imageUrl).toBe(`https://juanvg1529.github.io/og/${image}`);
+      const png = await (await request.get(`/og/${image}`)).body();
+      expect(png.subarray(1, 4).toString()).toBe('PNG');
+      expect([png.readUInt32BE(16), png.readUInt32BE(20)]).toEqual([1200, 630]);
+    });
+  }
+
+  test('structured data describes the person and the specialist credential', async ({ page }) => {
+    await page.goto('/');
+    const data = JSON.parse((await page.locator('script[type="application/ld+json"]').textContent())!);
+    expect(data['@type']).toBe('Person');
+    expect(data.jobTitle).toBe('QA Automation Engineer / SDET');
+    expect(data.hasCredential[0].name).toBe('Especialista en Ingeniería de Software con énfasis en Pruebas');
+    expect(data.sameAs).toContain('https://github.com/juanvg1529');
+  });
+
+  test('the specialist credential is shown prominently in both languages', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('.credential')).toContainText('Especialista en Ingeniería de Software');
+    await expect(page.locator('.credential')).toBeInViewport();
+    await page.getByRole('button', { name: 'Switch to English' }).click();
+    await expect(page.locator('.credential')).toContainText('Specialist in Software Engineering');
+  });
+});
